@@ -1,0 +1,93 @@
+---
+satellite_config_operatingsystems:
+  - description: "RedHat 8.9"
+    name: RedHat
+    major: 8
+    minor: 9
+    family: Redhat
+    password_hash: SHA512
+    architectures:
+      - x86_64
+    ptables:
+      - pt_uefi_default
+    provisioning_templates:
+      - "Discovery Red Hat kexec"
+      - "Kickstart default finish"
+      - "Kickstart default iPXE"
+      - "Kickstart default PXEGrub"
+      - "Kickstart default PXEGrub2"
+      - "Kickstart default PXELinux"
+      - "Default VM User Data"
+      - "Default VM Provisioning Template"
+      - "Linux host_init_config default"
+    os_default_templates:
+      provision: "Default VM Provisioning Template"
+
+  - description: "RHEL 8.10"
+    name: RedHat
+    major: 8
+    minor: 10
+    family: Redhat
+    password_hash: SHA512
+    architectures:
+      - x86_64
+    ptables:
+      - pt_uefi_default
+    provisioning_templates:
+      - "Discovery Red Hat kexec"
+      - "Kickstart default finish"
+      - "Kickstart default iPXE"
+      - "Kickstart default PXEGrub"
+      - "Kickstart default PXEGrub2"
+      - "Kickstart default PXELinux"
+      - "Default VM User Data"
+      - "Default VM Provisioning Template"
+      - "Linux host_init_config default"
+    os_default_templates:
+      provision: "Default VM Provisioning Template"
+
+  - description: "RedHat 9.3"
+    name: RedHat
+    major: 9
+    minor: 3
+    family: Redhat
+    password_hash: SHA512
+    architectures:
+      - x86_64
+    ptables:
+      - pt_uefi_default
+    provisioning_templates:
+      - "Discovery Red Hat kexec"
+      - "Kickstart default finish"
+      - "Kickstart default iPXE"
+      - "Kickstart default PXEGrub"
+      - "Kickstart default PXEGrub2"
+      - "Kickstart default PXELinux"
+      - "Default VM User Data"
+      - "Default VM Provisioning Template"
+      - "Linux host_init_config default"
+    os_default_templates:
+      provision: "Default VM Provisioning Template"
+
+  - description: "RedHat 9.4"
+    name: RedHat
+    major: 9
+    minor: 4
+    family: Redhat
+    password_hash: SHA512
+    architectures:
+      - x86_64
+    ptables:
+      - pt_uefi_default
+    provisioning_templates:
+      - "Discovery Red Hat kexec"
+      - "Kickstart default finish"
+      - "Kickstart default iPXE"
+      - "Kickstart default PXEGrub"
+      - "Kickstart default PXEGrub2"
+      - "Kickstart default PXELinux"
+      - "Default VM User Data"
+      - "Default VM Provisioning Template"
+      - "Linux host_init_config default"
+    os_default_templates:
+      provision: "Default VM Provisioning Template"

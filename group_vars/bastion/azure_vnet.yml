@@ -1,0 +1,7 @@
+---
+network_zone: public
+
+azure_vnet_address_prefix: "{{ azure_vnet_address_prefix_public }}"
+azure_subnet_address_prefix: "{{ azure_subnet_address_prefix_public }}"
+
+vnet_peering: false

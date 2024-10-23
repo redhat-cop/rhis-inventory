@@ -1,0 +1,14 @@
+---
+create_github_runner: true
+
+github_account: "showroom-project"
+runner_org: true
+runner_name: "showroom_runner"
+runner_workdir: "/opt/github_actions_runner"
+runner_labels:
+  - ci
+  - lint
+runner_group: "Default"
+runner_architecture: "x64"
+access_token: "{{ github_pat }}"
+runner_user: "{{ vm_user }}"

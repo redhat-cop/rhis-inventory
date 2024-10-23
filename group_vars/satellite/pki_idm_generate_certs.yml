@@ -1,0 +1,4 @@
+---
+pki_idm_generate_certs: true
+generate_certs: true
+update_ca_trust: true

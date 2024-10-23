@@ -1,0 +1,3 @@
+---
+pki_rootca: true
+ca_common_name: "Showroom RootCA"

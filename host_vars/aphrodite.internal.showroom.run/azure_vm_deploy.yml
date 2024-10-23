@@ -1,0 +1,6 @@
+---
+azure_vm_deploy_image_name: "{{ imagebuilder_images[0].image_name }}"
+azure_vm_deploy_vm_size: "Standard_E4bs_v5"
+vm_tags:
+  sequencestart: "2"
+  sequencestop: "4"

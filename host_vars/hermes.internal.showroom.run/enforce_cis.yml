@@ -1,0 +1,4 @@
+---
+package_squid_removed: false
+sshd_disable_tcp_forwarding: false
+enable_authselect: false

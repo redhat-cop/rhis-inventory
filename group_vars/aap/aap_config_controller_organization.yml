@@ -1,0 +1,12 @@
+---
+controller_organizations:
+  - name: "Default"
+    state: absent
+
+  - name: "{{ aap_config_organization }}"
+    assign_galaxy_credentials_to_org: true
+    galaxy_credentials:
+      - Automation Hub Community Repository
+      - Automation Hub Published Repository
+      - Automation Hub RH Certified Repository
+      - Automation Hub Validated Repository

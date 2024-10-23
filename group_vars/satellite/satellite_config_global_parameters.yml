@@ -1,0 +1,33 @@
+---
+satellite_config_global_parameters:
+  - name: "enable-epel"
+    value: false
+    parameter_type: "boolean"
+
+  - name: "enable-remote-execution-pull"
+    value: false
+    parameter_type: "boolean"
+
+  - name: "fips_enabled"
+    value: true
+    parameter_type: "boolean"
+
+  - name: "encrypt_grub"
+    value: true
+    parameter_type: "boolean"
+
+  - name: "lang"
+    value: "en_US.utf-8"
+    parameter_type: "string"
+
+  - name: "keyboard"
+    value: "us"
+    parameter_type: "string"
+
+  - name: "time-zone"
+    value: "Europe/Berlin"
+    parameter_type: "string"
+
+  - name: "host_registration_insights"
+    value: "true"
+    parameter_type: "boolean"

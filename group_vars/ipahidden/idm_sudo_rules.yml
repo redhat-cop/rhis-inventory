@@ -1,0 +1,61 @@
+---
+idm_sudo_rules:
+  - name: "realm-admin"
+    description: "Control sudo access on all servers for admins"
+    state: present
+    cmdcategory: all
+    hostcategory: all
+    group:
+      - admins
+
+  - name: "sat-admin"
+    description: "Control sudo access on Satellite Servers and Capsules"
+    state: present
+    cmdcategory: all
+    hostgroup:
+      - sat-servers
+    group:
+      - satgroup-administrator
+      - satgroup-org-administrator
+      - satgroup-site-administrator
+      - satgroup-operator
+
+  - name: "aap-admin"
+    description: "Control sudo access on Ansible Automation Platform Servers"
+    state: present
+    cmdcategory: all
+    hostgroup:
+      - aap-servers
+    group:
+      - aapgroup-administrator
+      - aapgroup-operator
+
+  - name: "github-runner-config"
+    description: "Control sudo access on Github Runner"
+    state: present
+    hostgroup:
+      - github-runner-servers
+    allow_sudocmd:
+      - /opt/actions-runner/bin/Runner.Listener
+    group:
+      - github-runner-group
+
+  - name: "bastion-squid-config"
+    description: "Control sudo access on Bastion for Squid"
+    state: present
+    hostgroup:
+      - bastion-servers
+    allow_sudocmd:
+      - /usr/sbin/squid
+    group:
+      - bastion-group
+
+  - name: "global-sudo-admin"
+    description: "Control sudo access without password"
+    state: present
+    cmdcategory: all
+    hostcategory: all
+    user:
+      - "{{ default_ssh_vm_user }}"
+    sudooption:
+      - "!authenticate"

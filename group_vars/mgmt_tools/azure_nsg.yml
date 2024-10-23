@@ -1,0 +1,188 @@
+---
+azure_subnet_nsg_rules:
+  # Inbound
+
+  # All connection within Subnet
+  - name: "AllowAllSubnetInbound"
+    protocol: "*"
+    direction: Inbound
+    priority: 100
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "*"
+
+  # SSH connection from Bastion
+  - name: "AllowSSHInBound"
+    protocol: Tcp
+    direction: Inbound
+    priority: 200
+    access: Allow
+    source_address_prefix: "{{ azure_subnet_address_prefix_public }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "22"
+
+  # HTTP connection from VirtualNetwork
+  - name: "AllowHTTPInBound"
+    protocol: Tcp
+    direction: Inbound
+    priority: 201
+    access: Allow
+    source_address_prefix: "VirtualNetwork"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "80"
+  # HTTPS connection from VirtualNetwork
+  - name: "AllowHTTPSInBound"
+    protocol: Tcp
+    direction: Inbound
+    priority: 202
+    access: Allow
+    source_address_prefix: "VirtualNetwork"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "443"
+  # Satellite Compute Resource’s virtual console connection from Bastion
+  - name: "AllowHTTPSInBound-2"
+    protocol: Tcp
+    direction: Inbound
+    priority: 203
+    access: Allow
+    source_address_prefix: "{{ azure_subnet_address_prefix_public }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "5910-5930"
+
+  # IDM connection from VirtualNetwork
+  - name: "AllowLDAPInBound"
+    protocol: Tcp
+    direction: Inbound
+    priority: 204
+    access: Allow
+    source_address_prefix: "VirtualNetwork"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "389"
+  - name: "AllowLDAPSInBound"
+    protocol: Tcp
+    direction: Inbound
+    priority: 205
+    access: Allow
+    source_address_prefix: "VirtualNetwork"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "636"
+  - name: "AllowKerberosInBound-1"
+    protocol: "*"
+    direction: Inbound
+    priority: 206
+    access: Allow
+    source_address_prefix: "VirtualNetwork"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "88"
+  - name: "AllowKerberosInBound-2"
+    protocol: "*"
+    direction: Inbound
+    priority: 207
+    access: Allow
+    source_address_prefix: "VirtualNetwork"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "464"
+  - name: "AllowDNSInBoundTCP"
+    protocol: "*"
+    direction: Inbound
+    priority: 208
+    access: Allow
+    source_address_prefix: "VirtualNetwork"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "53"
+  - name: "AllowNTPInBound"
+    protocol: Udp
+    direction: Inbound
+    priority: 209
+    access: Allow
+    source_address_prefix: "VirtualNetwork"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "123"
+  - name: "AllowKadmindInBound"
+    protocol: Tcp
+    direction: Inbound
+    priority: 210
+    access: Allow
+    source_address_prefix: "VirtualNetwork"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "749"
+
+  # Deny all other inbound
+  - name: "DenyOtherInBound"
+    protocol: "*"
+    direction: Inbound
+    priority: 500
+    access: Deny
+    source_address_prefix: "*"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "*"
+
+  # Outbound
+
+  # All connection within Subnet
+  - name: "AllowAllSubnetOutbound"
+    protocol: "*"
+    direction: Outbound
+    priority: 100
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "*"
+
+  # SSH connection to other vnets
+  - name: "AllowSSHOutBound"
+    protocol: Tcp
+    direction: Outbound
+    priority: 200
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "VirtualNetwork"
+    destination_port_range: "22"
+
+  # HTTP connection to workload_servers_intra
+  - name: "AllowHTTPOutBound"
+    protocol: Tcp
+    direction: Outbound
+    priority: 201
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_subnet_address_prefix_workload_servers_intra }}"
+    destination_port_range: "80"
+  # HTTPS connection to workload_servers_intra
+  - name: "AllowHTTPSOutBound"
+    protocol: Tcp
+    direction: Outbound
+    priority: 202
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_subnet_address_prefix_workload_servers_intra }}"
+    destination_port_range: "443"
+
+  # Deny other vnet connection
+  - name: "DenyOtherVnetOutBound"
+    protocol: "*"
+    direction: Outbound
+    priority: 500
+    access: Deny
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "VirtualNetwork"
+    destination_port_range: "*"

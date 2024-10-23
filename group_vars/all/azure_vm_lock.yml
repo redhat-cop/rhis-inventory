@@ -1,0 +1,3 @@
+---
+azure_vm_lock: false
+azure_vm_lock_name: "lock-{{ infrastructure_type }}-{{ network_zone }}-{{ deployment_environment }}-{{ inventory_hostname }}"

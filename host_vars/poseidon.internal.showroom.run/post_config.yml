@@ -1,0 +1,6 @@
+---
+rh_offline_tokens:
+  - name: "rhsm_offline_token"
+    value: "{{ satellite_rhsm_offline_token }}"
+  - name: "automation_hub_offline_token"
+    value: "{{ rh_automation_hub_offline_token }}"

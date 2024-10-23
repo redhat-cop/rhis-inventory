@@ -1,0 +1,10 @@
+---
+imagebuilder_images:
+  - image_name: "image-rhel-89"
+    distribution: "rhel-89"
+  - image_name: "image-rhel-8.10"
+    distribution: "rhel-8.10"
+  - image_name: "image-rhel-93"
+    distribution: "rhel-93"
+  - image_name: "image-rhel-94"
+    distribution: "rhel-94"

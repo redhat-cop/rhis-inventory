@@ -1,0 +1,16 @@
+---
+run_rhel_storage: true
+
+storage_pools:
+  - name: satellite_vg
+    disks:
+      - sdb
+    volumes:
+      - name: pgsql_lv
+        size: "20 GB"
+        mount_point: "/var/lib/pgsql"
+        state: present
+      - name: pulp_lv
+        size: "400 GB"
+        mount_point: "/var/lib/pulp"
+        state: present

@@ -1,0 +1,8 @@
+---
+controller_instance_groups:
+  - name: controlplane
+    instances: "{{ groups.aap_controller | first }}"
+    policy_instance_percentage: 100
+  - name: default
+    instances: "{{ groups.aap_execution_node_intra | first }}"
+    policy_instance_percentage: 100

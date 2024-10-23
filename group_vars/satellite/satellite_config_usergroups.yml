@@ -1,0 +1,18 @@
+---
+satellite_config_external_usergroups:
+  - name: "satgroup-administrator"
+    auth_source: "External"
+    usergroup: "satgroup-administrator"
+    state: "present"
+
+satellite_config_usergroups:
+  - name: "satgroup-administrator"
+    admin: true
+    state: "present"
+
+  - name: "satgroup-operator"
+    roles:
+      - "Register hosts"
+      - "Viewer"
+      - "Manager"
+    state: "present"

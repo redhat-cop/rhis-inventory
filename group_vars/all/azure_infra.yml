@@ -1,0 +1,6 @@
+---
+deployment_environment: dev
+azure_dns_zone: showroom.run
+azure_dns_private_dnz_zone_subdomain: internal
+azure_dns_private_dns_zone: "{{ azure_dns_private_dnz_zone_subdomain }}.{{ azure_dns_zone }}"
+azure_rg: "rg-{{ infrastructure_type }}-{{ network_zone }}-{{ deployment_environment }}"

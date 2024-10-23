@@ -1,0 +1,4 @@
+---
+azure_managed_disk: false
+azure_managed_disk_name: "{{ inventory_hostname }}-managed-disk"
+azure_managed_disk_storage_account_type: StandardSSD_LRS
