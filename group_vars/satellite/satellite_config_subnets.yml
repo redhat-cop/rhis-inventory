@@ -1,0 +1,61 @@
+---
+satellite_subnets:
+  - name: "intra_mgmt"
+    description: "My description"
+    network: "10.1.1.0"
+    mask: "255.255.255.0"
+    gateway: "10.1.1.1"
+    from_ip: "10.1.1.4"
+    to_ip: "10.1.1.255"
+    boot_mode: "Static"
+    tftp_proxy: "{{ inventory_hostname }}"
+    dns_proxy: "{{ inventory_hostname }}"
+    template_proxy: "{{ inventory_hostname }}"
+    discovery_capsule: "{{ inventory_hostname }}"
+    ipam: "None"
+    domains:
+      - "internal.showroom.run"
+    organizations:
+      - "{{ satellite_organization }}"
+    locations:
+      - "Intranet"
+
+  - name: "intra_work"
+    description: "My description"
+    network: "10.1.2.0"
+    mask: "255.255.255.0"
+    gateway: "10.1.2.1"
+    from_ip: "10.1.2.4"
+    to_ip: "10.1.2.255"
+    boot_mode: "Static"
+    tftp_proxy: "{{ inventory_hostname }}"
+    dns_proxy: "{{ inventory_hostname }}"
+    template_proxy: "{{ inventory_hostname }}"
+    discovery_capsule: "{{ inventory_hostname }}"
+    ipam: "None"
+    domains:
+      - "internal.showroom.run"
+    organizations:
+      - "{{ satellite_organization }}"
+    locations:
+      - "Intranet"
+
+  - name: "public"
+    description: "My description"
+    network: "10.1.0.0"
+    mask: "255.255.255.248"
+    gateway: "10.1.0.1"
+    from_ip: "10.1.0.4"
+    to_ip: "10.1.0.6"
+    boot_mode: "Static"
+    tftp_proxy: "{{ inventory_hostname }}"
+    dns_proxy: "{{ inventory_hostname }}"
+    template_proxy: "{{ inventory_hostname }}"
+    discovery_capsule: "{{ inventory_hostname }}"
+    ipam: "None"
+    domains:
+      - "internal.showroom.run"
+    organizations:
+      - "{{ satellite_organization }}"
+    locations:
+      - "Intranet"

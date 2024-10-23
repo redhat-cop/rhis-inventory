@@ -1,0 +1,5 @@
+---
+idm_config: false
+idm_default_dns_zone: "{{ azure_dns_private_dns_zone }}"
+
+ldap_domain_map: "dc=internal,dc=showroom,dc=run"

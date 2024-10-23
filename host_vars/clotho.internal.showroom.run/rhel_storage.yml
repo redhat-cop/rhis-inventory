@@ -1,0 +1,12 @@
+---
+run_rhel_storage: true
+
+storage_pools:
+  - name: awx_vg
+    disks:
+      - sdb
+    volumes:
+      - name: awx_lv
+        size: "20 GB"
+        mount_point: "/var/lib/awx"
+        state: present

@@ -1,0 +1,54 @@
+---
+controller_labels:
+  - name: backup
+    organization: "{{ aap_config_organization }}"
+  - name: operations
+    organization: "{{ aap_config_organization }}"
+  - name: testing
+    organization: "{{ aap_config_organization }}"
+  - name: rhel upgrade
+    organization: "{{ aap_config_organization }}"
+  - name: clean ccv
+    organization: "{{ aap_config_organization }}"
+  - name: vm remove
+    organization: "{{ aap_config_organization }}"
+  - name: vm update packages
+    organization: "{{ aap_config_organization }}"
+  - name: vm deploy - azure
+    organization: "{{ aap_config_organization }}"
+  - name: vm deploy - satellite
+    organization: "{{ aap_config_organization }}"
+  - name: vm decommission - satellite
+    organization: "{{ aap_config_organization }}"
+  - name: upgrade
+    organization: "{{ aap_config_organization }}"
+  - name: network
+    organization: "{{ aap_config_organization }}"
+  - name: snapshot
+    organization: "{{ aap_config_organization }}"
+  - name: vault
+    organization: "{{ aap_config_organization }}"
+  - name: inventory
+    organization: "{{ aap_config_organization }}"
+  - name: satellite configure
+    organization: "{{ aap_config_organization }}"
+  - name: aap configure
+    organization: "{{ aap_config_organization }}"
+  - name: certificate renew
+    organization: "{{ aap_config_organization }}"
+  - name: dns
+    organization: "{{ aap_config_organization }}"
+  - name: collection
+    organization: "{{ aap_config_organization }}"
+  - name: register host
+    organization: "{{ aap_config_organization }}"
+  - name: kernel patch
+    organization: "{{ aap_config_organization }}"
+  - name: publish cv
+    organization: "{{ aap_config_organization }}"
+  - name: promote ccv
+    organization: "{{ aap_config_organization }}"
+  - name: kernel patch
+    organization: "{{ aap_config_organization }}"
+  - name: leapp
+    organization: "{{ aap_config_organization }}"

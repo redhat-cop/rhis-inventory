@@ -1,0 +1,73 @@
+---
+name: AAP Jobs CI/CD
+run-name: AAP action Configure Controller
+on:
+  push:
+    branches: ["main", "devel"]
+    paths:
+      - 'group_vars/aap/aap_config*'
+
+jobs:
+  automation_controller_job:
+    name: Kick off Automation controller job
+    runs-on: [self-hosted]
+    steps:
+      - name: Prepare for collections and ansible
+        run: |
+          sudo subscription-manager repos --enable=ansible-automation-platform-2.4-for-rhel-9-x86_64-rpms
+          sudo dnf install ansible
+          ansible-galaxy collection install awx.awx
+          ansible-galaxy collection install community.general
+          ansible-galaxy collection install ansible.posix
+
+      - name: Prepare Ansible Playbook
+        run: |
+          tee controller_action_playbook.yml << EOF
+          ---
+          - name: Trigger Automation Job
+            hosts: localhost
+            gather_facts: false
+
+            tasks:
+              - name: Set variables from GitHub actions
+                ansible.builtin.set_fact:
+                  job_template_var: "RH AAP - Configure AAP"
+                  controller_host: "https://${{ secrets.CONTROLLER_HOST }}"
+                  controller_username: "${{ secrets.CONTROLLER_USERNAME }}"
+                  controller_password: "${{ secrets.CONTROLLER_PASSWORD }}"
+
+              - name: Launch a job template
+                when: job_template_var | length > 0
+                block:
+                  - name: Launch a job template with extra_vars
+                    awx.awx.job_launch:
+                      controller_host: "{{ controller_host }}"
+                      controller_username: "{{ controller_username }}"
+                      controller_password: "{{ controller_password }}"
+                      job_template: "{{ job_template_var }}"
+                      extra_vars: "{{ extra_vars | default(omit, true) }}"
+                    register: job_output
+
+                  - name: Wait for job
+                    awx.awx.job_wait:
+                      controller_host: "{{ controller_host }}"
+                      controller_username: "{{ controller_username }}"
+                      controller_password: "{{ controller_password }}"
+                      job_id: "{{ job_output.id }}"
+                      timeout: 21600
+
+          EOF
+
+      - name: Launch the playbook
+        run: |
+          ansible-playbook controller_action_playbook.yml
+          if [ $? -eq 0 ] || [ $? -eq 2 ]; then
+              echo "GitHub Action Job has executed successfully"
+          else
+              echo "GitHub Action Job has failed"
+              exit 1
+          fi
+
+      - name: Clean the playbook
+        run: |
+          rm controller_action_playbook.yml

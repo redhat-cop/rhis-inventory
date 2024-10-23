@@ -1,0 +1,4 @@
+---
+imagebuilder_images:
+  - distribution: "rhel-8.10"
+    image_name: "image-rhel-8.10"

@@ -1,0 +1,28 @@
+---
+controller_roles:
+  - team: "AAP Group Auditor"
+    organization: "{{ aap_config_organization }}"
+    role: auditor
+  - team: "AAP Group Operator"
+    organization: "{{ aap_config_organization }}"
+    role: execute
+  - team: "AAP Group Operator"
+    organization: "{{ aap_config_organization }}"
+    role: auditor
+  - team: "AAP Group Developer"
+    organization: "{{ aap_config_organization }}"
+    role: execute
+  - team: "AAP Group Developer"
+    organization: "{{ aap_config_organization }}"
+    role: auditor
+  - team: "AAP Group Developer"
+    organization: "{{ aap_config_organization }}"
+    role: job_template_admin
+  - team: "AAP Group Admin"
+    role: admin
+  - team: "AAP Group Template Manager"
+    organization: "{{ aap_config_organization }}"
+    role: job_template_admin
+  - team: "AAP Group Project Manager"
+    organization: "{{ aap_config_organization }}"
+    role: project_admin

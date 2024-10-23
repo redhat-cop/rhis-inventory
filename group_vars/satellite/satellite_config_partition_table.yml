@@ -1,0 +1,26 @@
+---
+satellite_config_partition_tables:
+  - name: pt_uefi_default
+    locations:
+      - Intranet
+#      - DMZ
+    layout: |
+      zerombr
+      # Only touch sda, ignore all other disks
+      ignoredisk --only-use=sda
+      # Partition clearing information
+      clearpart --all --initlabel --drives=sda
+      # Disk partitioning information
+      part /boot/efi --fstype=efi --size=512 --ondisk=sda
+      part /boot --size 1024 --asprimary --fstype=xfs --ondrive=sda
+      part pv.04 --size 1 --grow --ondrive=sda
+      volgroup vg_sys_<%= @host.shortname.gsub('-', '_')  %> --pesize=4096 pv.04
+      logvol /              --fstype=xfs  --vgname=vg_sys_<%= @host.shortname.gsub('-', '_')  %> --size=5120 --grow --maxsize=8192  --name=root
+      logvol /var           --fstype=xfs  --vgname=vg_sys_<%= @host.shortname.gsub('-', '_')  %> --size=1024 --grow --maxsize=10240 --name=var
+      logvol /var/log       --fstype=xfs  --vgname=vg_sys_<%= @host.shortname.gsub('-', '_')  %> --size=1024 --grow --maxsize=4096  --name=varlog
+      logvol /var/log/audit --fstype=xfs  --vgname=vg_sys_<%= @host.shortname.gsub('-', '_')  %> --size=1024 --grow --maxsize=4096  --name=varlogaudit
+      logvol /var/tmp       --fstype=xfs  --vgname=vg_sys_<%= @host.shortname.gsub('-', '_')  %> --size=1024 --grow --maxsize=2048  --name=vartmp
+      logvol /tmp           --fstype=xfs  --vgname=vg_sys_<%= @host.shortname.gsub('-', '_')  %> --size=1024 --grow --maxsize=4096  --name=tmp --fsoptions="nodev,nosuid"
+      logvol /home          --fstype=xfs  --vgname=vg_sys_<%= @host.shortname.gsub('-', '_')  %> --size=1024                        --name=home
+      logvol swap           --fstype=swap --vgname=vg_sys_<%= @host.shortname.gsub('-', '_')  %> --size=1024 --grow --maxsize=2048  --name=swap
+    state: present

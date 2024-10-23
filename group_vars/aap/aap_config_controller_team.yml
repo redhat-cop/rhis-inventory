@@ -1,0 +1,14 @@
+---
+controller_teams:
+  - name: AAP Group Auditor
+    organization: "{{ aap_config_organization }}"
+  - name: AAP Group Operator
+    organization: "{{ aap_config_organization }}"
+  - name: AAP Group Developer
+    organization: "{{ aap_config_organization }}"
+  - name: AAP Group Project Manager
+    organization: "{{ aap_config_organization }}"
+  - name: AAP Group Template Manager
+    organization: "{{ aap_config_organization }}"
+  - name: AAP Group Admin
+    organization: "{{ aap_config_organization }}"

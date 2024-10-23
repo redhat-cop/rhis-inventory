@@ -1,0 +1,12 @@
+---
+idm_host_groups:
+  - name: "sat-servers"
+    desc: "Satellite Servers and Capsules"
+  - name: "aap-servers"
+    desc: "Ansible Automation Platform Servers"
+  - name: "bastion-servers"
+    desc: "Utility Servers for General Purpose work"
+  - name: "github-runner-servers"
+    desc: "Utility Servers for General Purpose work"
+  - name: "all-servers"
+    desc: "All Servers"
