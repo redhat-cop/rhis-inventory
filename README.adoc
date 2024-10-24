@@ -1,25 +1,25 @@
 ////
-author: Showroom Project Team
+author: RHIS Project Team
 company: Red Hat, Inc.
 license: GPL-3.0-only
 ////
 
-:subject: Showroom Code Inventory
-:description: This document explains Showroom Project
+:subject: RHIS Code Inventory
+:description: This document explains RHIS Project
 :doctype: book
 :chapter-label:
 :imagesdir: ./images
 :encoding: UTF-8
 :lang: en
 :autofit-option:
-:url-org: https://github.com/showroom-project
-:url-repo: {url-org}/showroom-inventory
-:url-inventory-repo: {url-org}/showroom-inventory
+:url-org: https://github.com/redhat-cop
+:url-repo: {url-org}/rhis-inventory
+:url-inventory-repo: {url-org}/rhis-inventory
 
 = {subject}
 
-image:https://github.com/showroom-project/showroom-inventory/actions/workflows/ansible-lint.yml/badge.svg[Ansible Code Lint Status (GitHub Actions),link={url-repo}/actions/workflows/ansible-lint.yml] image:https://img.shields.io/badge/slack-channel-tech?logo=slack[Slack Channel,link=https://redhat.enterprise.slack.com/archives/C06UNKD7813] image:https://img.shields.io/badge/miro-workspace-board?logo=miro[Miro Workspace,link=https://miro.com/app/board/uXjVKUIlyW8=/] image:https://img.shields.io/badge/JIRA-Board-Workspace?logo=slack[JIRA Board,link=https://issues.redhat.com/secure/RapidBoard.jspa]
+image:https://github.com/redhat-cop/rhis-inventory/actions/workflows/ansible-lint.yml/badge.svg[Ansible Code Lint Status (GitHub Actions),link={url-repo}/actions/workflows/ansible-lint.yml] image:https://img.shields.io/badge/slack-channel-tech?logo=slack[Slack Channel,link=https://redhat.enterprise.slack.com/archives/C06UNKD7813]
 
-This repository is intended to contain inventory and all required variables for the ansible automation code in the https://github.com/showroom-project/showroom-code[Showroom Code] repository.
+This repository is intended to contain inventory and all required variables for the ansible automation code in the https://github.com/redhat-cop/rhis-code[RHIS Code] repository.
 
 The variables and inventory here is just an example basic to deploy the Red Hat Infrastructure Standard (*RH-IS*)footnote:disclaimer[https://github.com/redhat-cop/rhis-builder[RHIS Builder Repository]] framework for using integrated Red Hat technologies to build, manage, automate, optimize, and maintain Red Hat Enterprise Linux at scale in a hybrid multi-cloud.

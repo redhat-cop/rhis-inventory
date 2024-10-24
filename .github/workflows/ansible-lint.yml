@@ -40,4 +40,4 @@ jobs:
       - name: Run ansible-lint
         uses: ansible/ansible-lint@main
         with:
-          working_directory: /__w/showroom-inventory/showroom-inventory
+          working_directory: /__w/rhis-inventory/rhis-inventory

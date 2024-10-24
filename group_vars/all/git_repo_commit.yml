@@ -1,10 +1,10 @@
 ---
 git_repo_commit: false
 
-github_organization: showroom-project
-github_inventory_repo: showroom-inventory
+github_organization: redhat-cop
+github_inventory_repo: rhis-inventory
 github_inventory_repo_path: "{{ github_organization }}/{{ github_inventory_repo }}"
-github_code_repo: showroom-code
+github_code_repo: rhis-code
 github_code_repo_path: "{{ github_organization }}/{{ github_code_repo }}"
 
 git_username: techuser-github-showroom

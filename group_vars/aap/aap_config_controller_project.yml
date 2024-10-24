@@ -1,10 +1,10 @@
 ---
 controller_projects:
-  - name: "showroom-inventory"
+  - name: "rhis-inventory"
     description: "GitHub project inventory"
     credential: "GitHub Source Credential"
     default_environment: "{{ aap_config_default_execution_environment }}"
-    scm_url: "git@github.com:showroom-project/showroom-inventory.git"
+    scm_url: "git@github.com:redhat-cop/rhis-inventory.git"
     scm_type: git
     scm_branch: "{{ aap_config_default_scm_branch }}"
     scm_clean: true
@@ -15,11 +15,11 @@ controller_projects:
     update_project: true
     notification_templates_error: "{{ aap_config_default_notification_template }}"
 
-  - name: "showroom-code"
+  - name: "rhis-code"
     description: "Github project code"
     credential: "GitHub Source Credential"
     default_environment: "{{ aap_config_default_execution_environment }}"
-    scm_url: "git@github.com:showroom-project/showroom-code.git"
+    scm_url: "git@github.com:redhat-cop/rhis-code.git"
     scm_branch: "{{ aap_config_default_scm_branch }}"
     scm_type: git
     scm_clean: true
