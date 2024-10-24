@@ -1,8 +1,6 @@
 # RHIS-inventory
 
-[![Ansible Lint](https://github.com/redhat-cop/rhis-inventory/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/redhat-cop/rhis-inventory/actions/workflows/ansible-lint.yml/badge.svg)
-
-[![Slack Channel](https://img.shields.io/badge/slack-channel-tech?logo=slack)](https://redhat.enterprise.slack.com/archives/C07TAP5PJ8K)
+[![Ansible Lint](https://github.com/redhat-cop/rhis-inventory/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/redhat-cop/rhis-inventory/actions/workflows/ansible-lint.yml/badge.svg) [![Slack Channel](https://img.shields.io/badge/slack-channel-tech?logo=slack)](https://redhat.enterprise.slack.com/archives/C07TAP5PJ8K)
 
 This repository is intended to contain inventory and all required variables for the ansible automation code in the [RHIS-code](https://github.com/redhat-cop/rhis-code) repository.
 
