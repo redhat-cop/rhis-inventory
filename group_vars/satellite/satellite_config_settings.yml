@@ -1,0 +1,20 @@
+---
+satellite_settings:
+  - description: "Duration in days to preserve audits for. Leave empty to disable the audits cleanup."
+    name: "audits_period"
+    value: 30
+  - description: "Timezone to use for new users"
+    name: "default_timezone"
+    value: "Berlin"
+  - description: "Language to use for new users"
+    name: "default_locale"
+    value: "en"
+  - description: "Enable automatic upload of your host inventory to the Red Hat cloud"
+    name: "allow_auto_inventory_upload"
+    value: true
+  - description: "Enable automatic synchronization of Insights recommendations from the Red Hat cloud"
+    name: "allow_auto_insights_sync"
+    value: true
+  - description: "Destroy associated VM on host delete"
+    name: "destroy_vm_on_host_delete"
+    value: true

@@ -1,0 +1,118 @@
+---
+idm_users:
+  - name: "mkutlu"
+    first: "Mehmet"
+    last: "Kutlu"
+    email: "mkutlu@internal.showroom.run"
+    state: present
+  - name: "ypolat"
+    first: "Yigit"
+    last: "Polat"
+    email: "ypolat@internal.showroom.run"
+    state: present
+  - name: "bkaraoren"
+    first: "Bilhan"
+    last: "Karaoren"
+    email: "bkaraoren@internal.showroom.run"
+    state: present
+  - name: "mmaiti"
+    first: "Manas"
+    last: "Maiti"
+    email: "mmaiti@internal.showroom.run"
+    state: present
+  - name: "jcosta"
+    first: "Jose"
+    last: "Costa"
+    email: "jcosta@internal.showroom.run"
+    state: present
+  - name: "njagdale"
+    first: "Nupur"
+    last: "Jagdale"
+    email: "njagdale@internal.showroom.run"
+    state: present
+  - name: "svishnoi"
+    first: "Suresh"
+    last: "Vishnoi"
+    email: "svishnoi@internal.showroom.run"
+    state: present
+  - name: "parmstrong"
+    first: "Paul"
+    last: "Armstrong"
+    email: "parmstrong@internal.showroom.run"
+    state: present
+  - name: "mwelk"
+    first: "Martin"
+    last: "Welk"
+    email: "mwelk@internal.showroom.run"
+    state: present
+  - name: "{{ default_ssh_vm_user }}"
+    first: "Techuser"
+    last: "Ansible Global"
+    email: "{{ default_ssh_vm_user }}@internal.showroom.run"
+    password: "{{ techuser_ansible_global_password }}"
+    passwordexpiration: "2025-04-01 23:59:59"
+    update_password: on_create
+    state: present
+  - name: "{{ ldap_bind_principal }}"
+    first: "Techuser"
+    last: "Ldap Bind"
+    email: "{{ ldap_bind_principal }}@internal.showroom.run"
+    password: "{{ ldap_bind_password }}"
+    passwordexpiration: "2055-04-01 23:59:59"
+    update_password: on_create
+    state: present
+
+idm_group_users:
+  - group: "satgroup-administrator"
+    user:
+      - "mkutlu"
+      - "ypolat"
+      - "bkaraoren"
+      - "mmaiti"
+      - "jcosta"
+  - group: "satgroup-org-administrator"
+    user:
+      - "mkutlu"
+      - "ypolat"
+      - "bkaraoren"
+      - "mmaiti"
+      - "jcosta"
+  - group: "satgroup-site-administrator"
+    user:
+      - "mkutlu"
+      - "ypolat"
+      - "bkaraoren"
+      - "mmaiti"
+      - "jcosta"
+  - group: "aapgroup-administrator"
+    user:
+      - "mkutlu"
+      - "ypolat"
+      - "bkaraoren"
+      - "mmaiti"
+      - "jcosta"
+  - group: "satgroup-compliance-manager"
+    user:
+      - "mwelk"
+  - group: "satgroup-operator"
+    user:
+      - "svishnoi"
+      - "njagdale"
+  - group: "aapgroup-user"
+    user:
+      - "svishnoi"
+      - "njagdale"
+  - group: "aapgroup-auditor"
+    user:
+      - "mwelk"
+  - group: "default-ssh-group"
+    user:
+      - "{{ default_ssh_vm_user }}"
+
+idm_group_groups:
+  - name: "satgroup-administrator"
+    group: "admins"
+    state: "present"
+  - name: "aapgroup-administrator"
+    group: "admins"
+    state: "present"

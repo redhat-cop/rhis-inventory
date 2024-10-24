@@ -1,0 +1,5 @@
+---
+azure_vm_deploy_vm_size: "Standard_B2s"
+vm_tags:
+  sequencestart: "3"
+  sequencestop: "3"

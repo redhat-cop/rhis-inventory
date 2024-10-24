@@ -1,0 +1,23 @@
+---
+# Variable to add custom products and repos
+satellite_config_custom_products:
+  - name: "Epel"
+    description: "Extra Packages for Enterprise Linux 8"
+    org: "{{ satellite_organization }}"
+    label: "epel8"
+    repositories:
+      - name: "epel8"
+        upstream_name: ""
+        content_type: "yum"
+        url: "https://dl.fedoraproject.org/pub/epel/8/Everything/x86_64/"
+        username: ""
+        password: ""
+        download_policy: "on_demand"
+        gpg_key: "gpg_epel"
+      - name: "epel8_stream"
+        upstream_name: ""
+        content_type: "yum"
+        url: "https://dl.fedoraproject.org/pub/epel/8/Modular/x86_64/"
+        username: ""
+        password: ""
+        download_policy: "on_demand"

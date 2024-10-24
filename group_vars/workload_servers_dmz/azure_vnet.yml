@@ -1,0 +1,2 @@
+---
+azure_subnet_address_prefix: "{{ azure_subnet_address_prefix_workload_servers_dmz }}"

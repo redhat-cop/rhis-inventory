@@ -1,0 +1,12 @@
+---
+run_rhel_storage: true
+
+storage_pools:
+  - name: pah_vg
+    disks:
+      - sdb
+    volumes:
+      - name: pah_lv
+        size: "50 GB"
+        mount_point: "/var/lib/pulp"
+        state: present

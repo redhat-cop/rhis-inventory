@@ -1,0 +1,375 @@
+---
+controller_workflows:
+  - name: "Project SCM Inventory Sync"
+    description: "Workflow Template to sync inventory repository and project"
+    labels:
+      - inventory
+    organization: "{{ aap_config_organization }}"
+    inventory: "{{ aap_config_default_inventory }}"
+    allow_simultaneous: false
+    scm_branch: "{{ aap_config_default_scm_branch }}"
+    simplified_workflow_nodes:
+      - all_parents_must_converge: false
+        identifier: "Inventory Project Sync"
+        unified_job_template: "{{ aap_config_inventory_repo_name }}"
+        type: project
+    state: present
+
+  - name: "RHEL VM Update - Leapp 8.10 to 9.4 Upgrade"
+    description: "Leapp upgrade from 8.10 to 9.4"
+    labels:
+      - leapp
+    organization: "{{ aap_config_organization }}"
+    allow_simultaneous: false
+    state: present
+    extra_vars:
+      infra_leapp_upgrade_system_roles_collection: "redhat.rhel_system_roles"
+      leapp_preupg_opts: "--target 9.4"
+      leapp_upgrade_opts: "--target 9.4"
+      satellite_activation_key_post_leapp: "ak_dev_rhel9_default_vm"
+      satellite_activation_key_leapp: "ak_dev_leapp_rhel8_10_to_rhel9_4"
+      update_grub_to_grub_2: "true"
+    simplified_workflow_nodes:
+      - all_parents_must_converge: false
+        identifier: Analysis
+        unified_job_template: "RHEL VM Update - Leapp Analysis"
+        credentials: []
+        success_nodes:
+          - SnapshotCreate
+        failure_nodes: []
+        always_nodes: []
+      - identifier: SnapshotCreate
+        unified_job_template: "Azure - Snapshot Create"
+        credentials: []
+        success_nodes:
+          - Upgrade
+        failure_nodes: []
+        always_nodes: []
+      - identifier: Upgrade
+        unified_job_template: "RHEL VM Update - Leapp Upgrade"
+        credentials: []
+        success_nodes:
+          - PostLeappTest
+        failure_nodes: []
+        always_nodes: []
+      - identifier: PostLeappTest
+        unified_job_template: "RHEL VM Update - HTTP Test"
+        credentials: []
+        success_nodes:
+          - ChangeHostGroup
+        failure_nodes: []
+        always_nodes: []
+      - identifier: ChangeHostGroup
+        unified_job_template: "RH Satellite - Change Host Group"
+        credentials: []
+        success_nodes:
+          - Approval
+        failure_nodes: []
+        always_nodes: []
+      - identifier: Approval
+        approval_node:
+          name: Upgrade finished successfully, do you want to delete the snapshot?
+          description: Approval for snapshot delete
+          timeout: 0
+        success_nodes:
+          - SnapshotDelete
+      - identifier: SnapshotDelete
+        unified_job_template: "Azure - Snapshot Delete"
+    survey_enabled: true
+    survey_spec:
+      name: "Survey for hostname"
+      description: "Define hostname or group name Survey"
+      spec:
+        - question_name: "Hostname or Group?"
+          question_description: "Please provide fully qualified hostname or group name"
+          required: true
+          type: text
+          variable: "host"
+          min: 0
+          max: 250
+
+  - name: "RHEL VM Update - RHEL 8.x to the latest packages in lifecycle environment Dev"
+    description: "Update CVs & CCV and all packages on RHEL 8.x VM in Dev"
+    labels:
+      - vm update packages
+    organization: "{{ aap_config_organization }}"
+    allow_simultaneous: false
+    state: present
+    extra_vars:
+      satellite_config_ccvs:
+        - "ccv_rhel8_vm"
+    simplified_workflow_nodes:
+      - all_parents_must_converge: false
+        identifier: PublishCV
+        unified_job_template: "RH Satellite - Publish CVs"
+        credentials: []
+        success_nodes:
+          - SnapshotCreate
+        failure_nodes: []
+        always_nodes: []
+      - identifier: SnapshotCreate
+        unified_job_template: "Azure - Snapshot Create"
+        credentials: []
+        success_nodes:
+          - Update
+        failure_nodes: []
+        always_nodes: []
+      - identifier: Update
+        unified_job_template: "RHEL VM Update - Packages"
+        credentials: []
+        success_nodes:
+          - UpdateTest
+        failure_nodes: []
+        always_nodes: []
+      - identifier: UpdateTest
+        unified_job_template: "RHEL VM Update - HTTP Test"
+        credentials: []
+        success_nodes:
+          - ChangeHostGroup
+        failure_nodes: []
+        always_nodes: []
+      - identifier: ChangeHostGroup
+        unified_job_template: "RH Satellite - Change Host Group"
+        credentials: []
+        success_nodes:
+          - Approval
+        failure_nodes: []
+        always_nodes: []
+      - identifier: Approval
+        approval_node:
+          name: Update finished successfully, do you want to delete the snapshot?
+          description: Approval for snapshot delete
+          timeout: 0
+        success_nodes:
+          - SnapshotDelete
+      - identifier: SnapshotDelete
+        unified_job_template: "Azure - Snapshot Delete"
+    survey_enabled: true
+    survey_spec:
+      name: "Survey for hostname"
+      description: "Define RHEL 8.x hostname or group name Survey"
+      spec:
+        - question_name: "RHEL 8.x Hostname or Group?"
+          question_description: "Please provide fully qualified hostname or group name"
+          required: true
+          type: text
+          variable: "host"
+          min: 0
+          max: 250
+
+  - name: "RHEL VM Update - RHEL 8.x to the latest packages in lifecycle environment QA or Prod"
+    description: "Promote CCV and all packages on RHEL 8.x VM in QA or Prod"
+    labels:
+      - vm update packages
+    organization: "{{ aap_config_organization }}"
+    allow_simultaneous: false
+    state: present
+    extra_vars:
+      satellite_config_ccv_name: ccv_rhel8_vm
+    simplified_workflow_nodes:
+      - all_parents_must_converge: false
+        identifier: PromoteCCV
+        unified_job_template: "RH Satellite - Promote CCV"
+        credentials: []
+        success_nodes:
+          - SnapshotCreate
+        failure_nodes: []
+        always_nodes: []
+      - identifier: SnapshotCreate
+        unified_job_template: "Azure - Snapshot Create"
+        credentials: []
+        success_nodes:
+          - Update
+        failure_nodes: []
+        always_nodes: []
+      - identifier: Update
+        unified_job_template: "RHEL VM Update - Packages"
+        credentials: []
+        success_nodes:
+          - UpdateTest
+        failure_nodes: []
+        always_nodes: []
+      - identifier: UpdateTest
+        unified_job_template: "RHEL VM Update - HTTP Test"
+        credentials: []
+        success_nodes:
+          - ChangeHostGroup
+        failure_nodes: []
+        always_nodes: []
+      - identifier: ChangeHostGroup
+        unified_job_template: "RH Satellite - Change Host Group"
+        credentials: []
+        success_nodes:
+          - Approval
+        failure_nodes: []
+        always_nodes: []
+      - identifier: Approval
+        approval_node:
+          name: Update finished successfully, do you want to delete the snapshot?
+          description: Approval for snapshot delete
+          timeout: 0
+        success_nodes:
+          - SnapshotDelete
+      - identifier: SnapshotDelete
+        unified_job_template: "Azure - Snapshot Delete"
+    survey_enabled: true
+    survey_spec:
+      name: "Survey for hostname"
+      description: "Define RHEL 8.x hostname or group name Survey"
+      spec:
+        - question_name: "RHEL 8.x Hostname or Group?"
+          question_description: "Please provide fully qualified hostname or group name"
+          required: true
+          type: text
+          variable: "host"
+          min: 0
+          max: 250
+        - question_name: "To which lifecycle environment would you like to promote the CCV"
+          question_description: "Refer to https://aphrodite.internal.showroom.run/lifecycle_environments"
+          required: true
+          type: multiplechoice
+          variable: "lifecycle_environment"
+          choices: "QA\nProd"
+
+  - name: "RHEL VM Update - RHEL 9.x to the latest packages in lifecycle environment Dev"
+    description: "Update CVs & CCV and all packages on RHEL 9.x VM in Dev"
+    labels:
+      - vm update packages
+    organization: "{{ aap_config_organization }}"
+    allow_simultaneous: false
+    state: present
+    extra_vars:
+      satellite_config_ccvs:
+        - "ccv_rhel9_vm"
+    simplified_workflow_nodes:
+      - all_parents_must_converge: false
+        identifier: PublishCV
+        unified_job_template: "RH Satellite - Publish CVs"
+        credentials: []
+        success_nodes:
+          - SnapshotCreate
+        failure_nodes: []
+        always_nodes: []
+      - identifier: SnapshotCreate
+        unified_job_template: "Azure - Snapshot Create"
+        credentials: []
+        success_nodes:
+          - Update
+        failure_nodes: []
+        always_nodes: []
+      - identifier: Update
+        unified_job_template: "RHEL VM Update - Packages"
+        credentials: []
+        success_nodes:
+          - UpdateTest
+        failure_nodes: []
+        always_nodes: []
+      - identifier: UpdateTest
+        unified_job_template: "RHEL VM Update - HTTP Test"
+        credentials: []
+        success_nodes:
+          - ChangeHostGroup
+        failure_nodes: []
+        always_nodes: []
+      - identifier: ChangeHostGroup
+        unified_job_template: "RH Satellite - Change Host Group"
+        credentials: []
+        success_nodes:
+          - Approval
+        failure_nodes: []
+        always_nodes: []
+      - identifier: Approval
+        approval_node:
+          name: Update finished successfully, do you want to delete the snapshot?
+          description: Approval for snapshot delete
+          timeout: 0
+        success_nodes:
+          - SnapshotDelete
+      - identifier: SnapshotDelete
+        unified_job_template: "Azure - Snapshot Delete"
+    survey_enabled: true
+    survey_spec:
+      name: "Survey for hostname"
+      description: "Define RHEL 9.x hostname or group name Survey"
+      spec:
+        - question_name: "RHEL 9.x Hostname or Group?"
+          question_description: "Please provide fully qualified hostname or group name"
+          required: true
+          type: text
+          variable: "host"
+          min: 0
+          max: 250
+
+  - name: "RHEL VM Update - RHEL 9.x to the latest packages in lifecycle environment QA or Prod"
+    description: "Promote CCV and all packages on RHEL 9.x VM in QA or Prod"
+    labels:
+      - vm update packages
+    organization: "{{ aap_config_organization }}"
+    allow_simultaneous: false
+    state: present
+    extra_vars:
+      satellite_config_ccv_name: ccv_rhel9_vm
+    simplified_workflow_nodes:
+      - all_parents_must_converge: false
+        identifier: PromoteCCV
+        unified_job_template: "RH Satellite - Promote CCV"
+        credentials: []
+        success_nodes:
+          - SnapshotCreate
+        failure_nodes: []
+        always_nodes: []
+      - identifier: SnapshotCreate
+        unified_job_template: "Azure - Snapshot Create"
+        credentials: []
+        success_nodes:
+          - Update
+        failure_nodes: []
+        always_nodes: []
+      - identifier: Update
+        unified_job_template: "RHEL VM Update - Packages"
+        credentials: []
+        success_nodes:
+          - UpdateTest
+        failure_nodes: []
+        always_nodes: []
+      - identifier: UpdateTest
+        unified_job_template: "RHEL VM Update - HTTP Test"
+        credentials: []
+        success_nodes:
+          - ChangeHostGroup
+        failure_nodes: []
+        always_nodes: []
+      - identifier: ChangeHostGroup
+        unified_job_template: "RH Satellite - Change Host Group"
+        credentials: []
+        success_nodes:
+          - Approval
+        failure_nodes: []
+        always_nodes: []
+      - identifier: Approval
+        approval_node:
+          name: Update finished successfully, do you want to delete the snapshot?
+          description: Approval for snapshot delete
+          timeout: 0
+        success_nodes:
+          - SnapshotDelete
+      - identifier: SnapshotDelete
+        unified_job_template: "Azure - Snapshot Delete"
+    survey_enabled: true
+    survey_spec:
+      name: "Survey for hostname"
+      description: "Define RHEL 9.x hostname or group name Survey"
+      spec:
+        - question_name: "RHEL 9.x Hostname or Group?"
+          question_description: "Please provide fully qualified hostname or group name"
+          required: true
+          type: text
+          variable: "host"
+          min: 0
+          max: 250
+        - question_name: "To which lifecycle environment would you like to promote the CCV"
+          question_description: "Refer to https://aphrodite.internal.showroom.run/lifecycle_environments"
+          required: true
+          type: multiplechoice
+          variable: "lifecycle_environment"
+          choices: "QA\nProd"

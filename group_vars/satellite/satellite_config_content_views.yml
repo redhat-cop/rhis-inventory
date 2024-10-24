@@ -1,0 +1,222 @@
+---
+satellite_content_views:
+  - name: cv_rhel8_base
+    description: "Content View containing all repositories for RHEL8"
+    repositories:
+      - name: "Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8"
+        product: "Red Hat Enterprise Linux for x86_64"
+  #  date_filter_name: "Include_Errata_By_Date"
+    environments:
+      - "Library"
+    # filters:
+    #   - name: "Include_All_Packages_No_Errata"
+    #     filter_type: "rpm"
+    #     inclusion: true
+    #     description: "Include all rpms with no errata for all repositories"
+    #     original_packages: true
+    #   - name: "Include_All_Streams_No_Errata"
+    #     filter_type: "modulemd"
+    #     inclusion: true
+    #     description: "Include all module streams with no errata for all repositories"
+    #     original_module_streams: true
+    #   - name: "Include_Errata_By_Date"
+    #     filter_type: "erratum"
+    #     inclusion: true
+    #     description: "Include all errata updated as of {{ lookup('pipe', 'date +%Y-%m-%d') }}"
+    #     rules:
+    #       - name: "errata-by-date-{{ lookup('pipe', 'date +%Y-%m-%d') }}"
+    #         end_date: "{{ lookup('pipe', 'date +%Y-%m-%d') }}"
+    #         date_type: "updated"
+    #         types:
+    #           - "enhancement"
+    #           - "bugfix"
+    #           - "security"
+    #   - name: "Exclude_FireFox"
+    #     filter_type: "rpm"
+    #     inclusion: false
+    #     description: "Do not provide Firefox to servers"
+    #     rules:
+    #       - name: "firefox*"
+
+  - name: "cv_rhel9_base"
+    description: "Content View containing all repositories for RHEL9"
+    repositories:
+      - name: "Red Hat Enterprise Linux 9 for x86_64 - AppStream RPMs 9"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 9 for x86_64 - BaseOS RPMs 9"
+        product: "Red Hat Enterprise Linux for x86_64"
+    lifecycle_environments:
+      - "Library"
+
+  - name: "cv_aap"
+    description: "Content view containing all repositories for Ansible Automation Platform"
+    repositories:
+      - name: "Red Hat Ansible Automation Platform 2.4 for RHEL 9 x86_64 Files"
+        product: "Red Hat Ansible Automation Platform"
+      - name: "Red Hat Ansible Automation Platform 2.4 for RHEL 9 x86_64 RPMs"
+        product: "Red Hat Ansible Automation Platform"
+    lifecycle_environments:
+      - "Library"
+
+  - name: "cv_epel"
+    description: "Content view containing all repositories for Epel"
+    repositories:
+      - name: "epel8"
+        product: "Epel"
+      - name: "epel8_stream"
+        product: "Epel"
+    lifecycle_environments:
+      - "Library"
+
+  - name: cv_rhel8_capsule
+    description: "Content View containing additional repos needed for a capsule"
+    repositories:
+      - name: "Red Hat Satellite Capsule 6.15 for RHEL 8 x86_64 RPMs"
+        product: "Red Hat Satellite Capsule"
+      - name: "Red Hat Satellite Maintenance 6.15 for RHEL 8 x86_64 RPMs"
+        product: "Red Hat Enterprise Linux for x86_64"
+    lifecycle_environments::
+      - "Library"
+
+  - name: cv_rhel8_support_tools
+    description: "Content View containing support tools for RHEL8"
+    repositories:
+      - name: "Red Hat Satellite Client 6 for RHEL 8 x86_64 RPMs"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 8 for x86_64 - Supplementary RPMs 8"
+        product: "Red Hat Enterprise Linux for x86_64"
+    lifecycle_environments::
+      - "Library"
+
+  - name: cv_rhel9_support_tools
+    description: "Content View containing support tools for RHEL9"
+    repositories:
+      - name: "Red Hat Satellite Client 6 for RHEL 9 x86_64 RPMs"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 9 for x86_64 - Supplementary RPMs 9"
+        product: "Red Hat Enterprise Linux for x86_64"
+    lifecycle_environments:
+      - "Library"
+
+  - name: cv_rhel8_kickstart
+    description: "Content View containing all repositories for Kickstart for RHEL8"
+    repositories:
+      - name: "Red Hat Enterprise Linux 8 for x86_64 - AppStream Kickstart 8.9"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 8 for x86_64 - BaseOS Kickstart 8.9"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 8 for x86_64 - AppStream Kickstart 8.10"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 8 for x86_64 - BaseOS Kickstart 8.10"
+        product: "Red Hat Enterprise Linux for x86_64"
+    lifecycle_environments:
+      - "Library"
+
+  - name: cv_rhel9_kickstart
+    description: "Content View containing all repositories for Kickstart for RHEL9"
+    repositories:
+      - name: "Red Hat Enterprise Linux 9 for x86_64 - AppStream Kickstart 9.3"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 9 for x86_64 - BaseOS Kickstart 9.3"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 9 for x86_64 - AppStream Kickstart 9.4"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 9 for x86_64 - BaseOS Kickstart 9.4"
+        product: "Red Hat Enterprise Linux for x86_64"
+    lifecycle_environments:
+      - "Library"
+
+  - name: ccv_aap
+    description: "Ansible Automation Platform composite content view"
+    auto_publish: false
+    components:
+      - content_view: cv_rhel9_base
+        latest: true
+      - content_view: cv_aap
+        latest: true
+      - content_view: cv_rhel9_support_tools
+        latest: true
+    lifecycle_environments:
+      - "Library"
+      - "Dev"
+      - "QA"
+      - "Prod"
+
+  - name: ccv_epel
+    description: "Epel composite content view"
+    auto_publish: false
+    components:
+      - content_view: cv_rhel8_base
+        latest: true
+      - content_view: cv_epel
+        latest: true
+      - content_view: cv_rhel8_support_tools
+        latest: true
+    lifecycle_environments:
+      - "Library"
+      - "Dev"
+      - "QA"
+      - "Prod"
+
+  - name: ccv_rhel8_capsule
+    description: "Content View for Satellite Capsule"
+    auto_publish: false
+    components:
+      - content_view: cv_rhel8_base
+        latest: true
+      - content_view: cv_rhel8_capsule
+        latest: true
+      - content_view: cv_rhel8_support_tools
+        latest: true
+    lifecycle_environments:
+      - "Library"
+      - "Dev"
+      - "QA"
+      - "Prod"
+
+  - name: ccv_rhel8_vm
+    description: "Content View for RHEL8 VMs"
+    auto_publish: false
+    components:
+      - content_view: cv_rhel8_base
+        latest: true
+      - content_view: cv_rhel8_support_tools
+        latest: true
+    lifecycle_environments:
+      - "Library"
+      - "Dev"
+      - "QA"
+      - "Prod"
+
+  - name: ccv_rhel9_vm
+    description: "Content View for RHEL9 VMs"
+    auto_publish: false
+    components:
+      - content_view: cv_rhel9_base
+        latest: true
+      - content_view: cv_rhel9_support_tools
+        latest: true
+    lifecycle_environments:
+      - "Library"
+      - "Dev"
+      - "QA"
+      - "Prod"
+
+  - name: "cv_leapp_rhel8_10_to_rhel9_4"
+    description: "Content View for RHEL8.10 to RHEL9.4 Leapp Upgrades"
+    repositories:
+      - name: "Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8.10"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8.10"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 9 for x86_64 - AppStream RPMs 9.4"
+        product: "Red Hat Enterprise Linux for x86_64"
+      - name: "Red Hat Enterprise Linux 9 for x86_64 - BaseOS RPMs 9.4"
+        product: "Red Hat Enterprise Linux for x86_64"
+    lifecycle_environments:
+      - "Library"
+      - "Dev"
+      - "QA"
+      - "Prod"

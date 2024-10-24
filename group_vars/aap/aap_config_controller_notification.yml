@@ -1,0 +1,10 @@
+---
+controller_notifications:
+  - name: "Slack Notifications"
+    description: "Send Job Notifications to the related Channel"
+    notification_type: slack
+    notification_configuration:
+      channels:
+        - proj-showroom-notifications
+      token: "{{ slack_token }}"
+    organization: "{{ aap_config_organization }}"

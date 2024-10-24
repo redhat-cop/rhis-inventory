@@ -1,0 +1,4 @@
+---
+controller_tokens:
+  - application: GitHub Authentication Application
+    description: Token used for GitHub pipelines to trigger job templates in AAP

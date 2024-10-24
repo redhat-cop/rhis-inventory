@@ -1,0 +1,41 @@
+---
+satellite_config_git_repos:
+  - repository: "https://github.com/RedHatOfficial/ansible-role-rhel9-pci-dss.git"
+    name: "ansible-role-rhel9-pci-dss"
+    dest: "/etc/ansible/roles/ansible-role-rhel9-pci-dss"
+    clone: true
+    force: true
+  - repository: "https://github.com/RedHatOfficial/ansible-role-rhel9-cis.git"
+    name: "ansible-role-rhel9-cis"
+    dest: "/etc/ansible/roles/ansible-role-rhel9-cis"
+    clone: true
+    force: true
+  - repository: "https://github.com/RedHatOfficial/ansible-role-rhel9-stig.git"
+    name: "ansible-role-rhel9-stig"
+    dest: "/etc/ansible/roles/ansible-role-rhel9-stig"
+    clone: true
+    force: true
+  - repository: "https://github.com/RedHatOfficial/ansible-role-rhel8-pci-dss.git"
+    name: "ansible-role-rhel8-pci-dss"
+    dest: "/etc/ansible/roles/ansible-role-rhel8-pci-dss"
+    clone: true
+    force: true
+  - repository: "https://github.com/RedHatOfficial/ansible-role-rhel8-cis.git"
+    name: "ansible-role-rhel8-cis"
+    dest: "/etc/ansible/roles/ansible-role-rhel8-cis"
+    clone: true
+    force: true
+  - repository: "https://github.com/RedHatOfficial/ansible-role-rhel8-stig.git"
+    name: "ansible-role-rhel8-stig"
+    dest: "/etc/ansible/roles/ansible-role-rhel8-stig"
+    clone: true
+    force: true
+
+satellite_config_ansible_roles:
+  - "theforeman.foreman_scap_client"
+  - "ansible-role-rhel9-pci-dss"
+  - "ansible-role-rhel9-cis"
+  - "ansible-role-rhel9-stig"
+  - "ansible-role-rhel8-pci-dss"
+  - "ansible-role-rhel8-cis"
+  - "ansible-role-rhel8-stig"

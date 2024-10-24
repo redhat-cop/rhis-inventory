@@ -1,0 +1,8 @@
+---
+satellite_config_realms:
+  - name: "INTERNAL.SHOWROOM.RUN"
+    realm_proxy: "{{ groups.satellite | first }}"
+    realm_type: "Red Hat Identity Management"
+    state: present
+    locations:
+      - Intranet

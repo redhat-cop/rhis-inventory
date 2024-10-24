@@ -1,0 +1,3 @@
+---
+azure_managed_disk: true
+azure_managed_disk_size: 500

@@ -1,0 +1,10 @@
+---
+ah_ee_repositories:
+  - name: ee-supported-remote-rhel9
+    description: Execution Environment with the ansible version 2.15
+    upstream_name: "ansible-automation-platform-{{ aap_install_major_version | replace('.', '') }}/ee-supported-rhel9"
+    registry: "Red Hat Registry"
+    include_tags:
+      - "latest"
+    wait: true
+    sync: true

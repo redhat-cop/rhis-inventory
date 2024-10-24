@@ -1,0 +1,44 @@
+---
+controller_projects:
+  - name: "rhis-inventory"
+    description: "GitHub project inventory"
+    credential: "GitHub Source Credential"
+    default_environment: "{{ aap_config_default_execution_environment }}"
+    scm_url: "git@github.com:redhat-cop/rhis-inventory.git"
+    scm_type: git
+    scm_branch: "{{ aap_config_default_scm_branch }}"
+    scm_clean: true
+    scm_update_on_launch: true
+    allow_override: false
+    organization: "{{ aap_config_organization }}"
+    wait: true
+    update_project: true
+    notification_templates_error: "{{ aap_config_default_notification_template }}"
+
+  - name: "rhis-code"
+    description: "Github project code"
+    credential: "GitHub Source Credential"
+    default_environment: "{{ aap_config_default_execution_environment }}"
+    scm_url: "git@github.com:redhat-cop/rhis-code.git"
+    scm_branch: "{{ aap_config_default_scm_branch }}"
+    scm_type: git
+    scm_clean: true
+    scm_update_on_launch: true
+    allow_override: false
+    organization: "{{ aap_config_organization }}"
+    wait: true
+    update_project: true
+    notification_templates_error: "{{ aap_config_default_notification_template }}"
+
+  - name: "insights-project"
+    description: "Github project code"
+    credential: "Insights Credential"
+    default_environment: "{{ aap_config_default_execution_environment }}"
+    scm_type: "insights"
+    scm_clean: true
+    scm_update_on_launch: true
+    organization: "{{ aap_config_organization }}"
+    notification_templates_error: "{{ aap_config_default_notification_template }}"
+
+  - name: "Demo Project"
+    state: absent

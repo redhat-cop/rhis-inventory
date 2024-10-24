@@ -1,0 +1,71 @@
+---
+satellite_compute_resources:
+  - name: "Azure_Management"
+    provider: "AzureRm"
+    locations:
+      - Intranet
+      - DMZ
+    state: present
+    provider_params:
+      app_ident: "{{ techuser_ansible_client_id }}"
+      password: "{{ techuser_ansible_secret_value }}"
+      cloud: "azure"
+      region: "{{ azure_region }}"
+      sub_id: "{{ azure_subscription_id }}"
+      tenant: "{{ azure_tenant_id }}"
+    images:
+      - name: "image-rhel-94"
+        architecture: "x86_64"
+        operatingsystem: "RedHat 9.4"
+        image_username: "{{ vm_user }}"
+        user_data: true
+        uuid: "custom://image-rhel-94"
+
+      - name: "image-rhel-8.10"
+        architecture: "x86_64"
+        operatingsystem: "RHEL 8.10"
+        image_username: "{{ vm_user }}"
+        user_data: true
+        uuid: "custom://image-rhel-8.10"
+
+  - name: "Azure_Workload"
+    provider: "AzureRm"
+    locations:
+      - Intranet
+      - DMZ
+    state: present
+    provider_params:
+      app_ident: "{{ techuser_ansible_client_id }}"
+      password: "{{ techuser_ansible_secret_value }}"
+      cloud: "azure"
+      region: "{{ azure_region }}"
+      sub_id: "{{ hostvars[groups.work | first]['azure_subscription_id'] }}" # FIX
+      tenant: "{{ azure_tenant_id }}"
+    images:
+      - name: "image-rhel-93"
+        architecture: "x86_64"
+        operatingsystem: "RedHat 9.3"
+        image_username: "{{ vm_user }}"
+        user_data: true
+        uuid: "custom://image-rhel-93"
+
+      - name: "image-rhel-94"
+        architecture: "x86_64"
+        operatingsystem: "RedHat 9.4"
+        image_username: "{{ vm_user }}"
+        user_data: true
+        uuid: "custom://image-rhel-94"
+
+      - name: "image-rhel-89"
+        architecture: "x86_64"
+        operatingsystem: "RedHat 8.9"
+        image_username: "{{ vm_user }}"
+        user_data: true
+        uuid: "custom://image-rhel-89"
+
+      - name: "image-rhel-8.10"
+        architecture: "x86_64"
+        operatingsystem: "RHEL 8.10"
+        image_username: "{{ vm_user }}"
+        user_data: true
+        uuid: "custom://image-rhel-8.10"

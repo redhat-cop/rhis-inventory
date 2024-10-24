@@ -1,0 +1,8 @@
+---
+redhat_subscription_username: "{{ hostvars[groups['satellite'][0]]['satellite_username'] }}"
+redhat_subscription_password: "{{ hostvars[groups['satellite'][0]]['satellite_password'] }}"
+controller_license:
+  use_lookup: true
+  filters:
+    product_name: "Red Hat Ansible Automation Platform"
+    support_level: "Self-Support"
