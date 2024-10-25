@@ -14,7 +14,7 @@ satellite_subnets:
     discovery_capsule: "{{ inventory_hostname }}"
     ipam: "None"
     domains:
-      - "internal.showroom.run"
+      - "{{ azure_dns_private_dns_zone }}"
     organizations:
       - "{{ satellite_organization }}"
     locations:
@@ -34,7 +34,7 @@ satellite_subnets:
     discovery_capsule: "{{ inventory_hostname }}"
     ipam: "None"
     domains:
-      - "internal.showroom.run"
+      - "{{ azure_dns_private_dns_zone }}"
     organizations:
       - "{{ satellite_organization }}"
     locations:
@@ -54,7 +54,7 @@ satellite_subnets:
     discovery_capsule: "{{ inventory_hostname }}"
     ipam: "None"
     domains:
-      - "internal.showroom.run"
+      - "{{ azure_dns_private_dns_zone }}"
     organizations:
       - "{{ satellite_organization }}"
     locations:

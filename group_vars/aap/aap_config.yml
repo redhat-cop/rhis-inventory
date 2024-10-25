@@ -14,7 +14,7 @@ aap_config_default_notification_template: "Slack Notifications"
 aap_config_default_execution_environment: "Automation Hub Default Remote execution environment"
 aap_config_default_job_run: "run"
 
-aap_config_default_scm_branch: devel
+aap_config_default_scm_branch: main
 
 controller_configuration_secure_logging: true
 controller_configuration_projects_async_retries: "90"

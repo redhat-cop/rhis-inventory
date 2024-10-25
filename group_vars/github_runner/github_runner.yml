@@ -1,7 +1,7 @@
 ---
 create_github_runner: true
 
-github_account: "showroom-project"
+github_account: "rhis-project"
 runner_org: true
 runner_name: "showroom_runner"
 runner_workdir: "/opt/github_actions_runner"

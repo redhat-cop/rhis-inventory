@@ -8,4 +8,4 @@ github_code_repo: rhis-code
 github_code_repo_path: "{{ github_organization }}/{{ github_code_repo }}"
 
 git_username: techuser-github-showroom
-git_email: bkaraore+showroom@redhat.com
+git_email: techuser-github-showroom@redhat.com

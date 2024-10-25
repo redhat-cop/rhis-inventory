@@ -213,7 +213,7 @@ controller_templates:
       description: "Define remediation points"
       spec:
         - question_name: "What do you want to remediate?"
-          question_description: "Inhibitors to remediate, refer to https://lachesis.internal.showroom.run/ui/repo/validated/infra/leapp/content/role/remediate/"
+          question_description: "Inhibitors to remediate, refer to https://{{ groups.aap_pah | first }}/ui/repo/validated/infra/leapp/content/role/remediate/"
           required: true
           type: multiselect
           variable: "remediation_todo"
@@ -409,13 +409,13 @@ controller_templates:
       description: "Define CCV"
       spec:
         - question_name: "Which CCV you would you like to promote?"
-          question_description: "Refer to https://aphrodite.internal.showroom.run/content_views"
+          question_description: "Refer to https://{{ groups.satellite | first }}/content_views"
           required: true
           type: multiplechoice
           variable: "satellite_config_ccv_name"
           choices: "ccv_aap\nccv_epel\nccv_rhel8_capsule\nccv_rhel8_vm\nccv_rhel9_vm"
         - question_name: "To which lifecycle environment would you like to promote the CCV"
-          question_description: "Refer to https://aphrodite.internal.showroom.run/lifecycle_environments"
+          question_description: "Refer to https://{{ groups.satellite | first }}/lifecycle_environments"
           required: true
           type: multiplechoice
           variable: "lifecycle_environment"
@@ -441,7 +441,7 @@ controller_templates:
       description: "Define CCVs for CVs"
       spec:
         - question_name: "Which CVs within the specified CCV are intended to be published and promoted to the lifecycle environment Dev?"
-          question_description: "Refer to https://aphrodite.internal.showroom.run/content_views"
+          question_description: "Refer to https://{{ groups.satellite | first }}/content_views"
           required: true
           type: multiselect
           variable: "satellite_config_ccvs"

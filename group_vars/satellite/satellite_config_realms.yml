@@ -1,6 +1,6 @@
 ---
 satellite_config_realms:
-  - name: "INTERNAL.SHOWROOM.RUN"
+  - name: "{{ azure_dns_private_dns_zone | upper }}"
     realm_proxy: "{{ groups.satellite | first }}"
     realm_type: "Red Hat Identity Management"
     state: present
