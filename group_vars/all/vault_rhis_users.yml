@@ -1,7 +1,7 @@
 ---
 showroom_users:
-  - name: showroom-user-1
-    first: showroom-user-1
+  - name: rhis-user-1
+    first: rhis-user-1
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -10,12 +10,12 @@ showroom_users:
       34663239386564306136643461626363663665633736643936313364633465666565643237356133
       3739313131393831380a376662656532633930396335626137633436646463313566313361616231
       3030
-    email: "showroom-user-1@internal.showroom.run"
+    email: "rhis-user-1@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-2
-    first: showroom-user-2
+  - name: rhis-user-2
+    first: rhis-user-2
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -24,12 +24,12 @@ showroom_users:
       64653137386130666337363835343132656634363437656663343437643765346233346630303531
       3361616539376638310a653162626264333031663165623364396531393365363537343834333466
       3837
-    email: "showroom-user-2@internal.showroom.run"
+    email: "rhis-user-2@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-3
-    first: showroom-user-3
+  - name: rhis-user-3
+    first: rhis-user-3
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -38,12 +38,12 @@ showroom_users:
       30656330613063643837666334383133633830393033663866666132623765363732316137623031
       6464383232376437330a343137376536316565633838323664306336316536393465353538343566
       6133
-    email: "showroom-user-3@internal.showroom.run"
+    email: "rhis-user-3@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-4
-    first: showroom-user-4
+  - name: rhis-user-4
+    first: rhis-user-4
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -52,12 +52,12 @@ showroom_users:
       31633465313233623631313163613766346163333965333230333334393232366630663935623535
       6232613932323330320a656430396339623130383931656537303732316666343135326532626666
       6631
-    email: "showroom-user-4@internal.showroom.run"
+    email: "rhis-user-4@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-5
-    first: showroom-user-5
+  - name: rhis-user-5
+    first: rhis-user-5
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -66,12 +66,12 @@ showroom_users:
       64336561396436373739626666626434383438333232353334653765303161333062383066396663
       3162316630613062340a626433366330356166323265396132303961396232323439656238383263
       3462
-    email: "showroom-user-5@internal.showroom.run"
+    email: "rhis-user-5@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-6
-    first: showroom-user-6
+  - name: rhis-user-6
+    first: rhis-user-6
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -80,12 +80,12 @@ showroom_users:
       35626362303866653737333834616438623262363466636436343561626566336566383466366138
       3263643661353838320a643833303964373934353631656164383330653562656662386663313565
       3736
-    email: "showroom-user-6@internal.showroom.run"
+    email: "rhis-user-6@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-7
-    first: showroom-user-7
+  - name: rhis-user-7
+    first: rhis-user-7
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -94,12 +94,12 @@ showroom_users:
       63366161363433636263353063623161346534613062663438366332656262356633376664333562
       3834353835636537360a363365633362373430386336643330623734313762313139326664376131
       6366
-    email: "showroom-user-7@internal.showroom.run"
+    email: "rhis-user-7@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-8
-    first: showroom-user-8
+  - name: rhis-user-8
+    first: rhis-user-8
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -108,12 +108,12 @@ showroom_users:
       38383032663030316236366238336164303363393939353733353765656332626537646234323134
       3931663263646662320a663734383634373265326131626632326430613835376465376634616431
       3465
-    email: "showroom-user-8@internal.showroom.run"
+    email: "rhis-user-8@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-9
-    first: showroom-user-9
+  - name: rhis-user-9
+    first: rhis-user-9
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -122,12 +122,12 @@ showroom_users:
       34316632393966623737343932306239653261383532366665363139383935663931396531663830
       3037316237393234310a363138616339336439386164313538336564363339323964663333316263
       3165
-    email: "showroom-user-9@internal.showroom.run"
+    email: "rhis-user-9@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-10
-    first: showroom-user-10
+  - name: rhis-user-10
+    first: rhis-user-10
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -136,12 +136,12 @@ showroom_users:
       62363238313030393338363265343831393864313937613161316237656365353839653264643533
       3132663336663730630a326633323237386565396235333461326434323434336632373034326166
       3231
-    email: "showroom-user-10@internal.showroom.run"
+    email: "rhis-user-10@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-11
-    first: showroom-user-11
+  - name: rhis-user-11
+    first: rhis-user-11
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -150,12 +150,12 @@ showroom_users:
       33643265333764353539356336303437353931663538636331323162366463633832663362336230
       6663633036353130390a656332313036613236306235656634313862643430386263313031306333
       3366
-    email: "showroom-user-11@internal.showroom.run"
+    email: "rhis-user-11@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-12
-    first: showroom-user-12
+  - name: rhis-user-12
+    first: rhis-user-12
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -164,12 +164,12 @@ showroom_users:
       36666332643739323736383836346639313433333030643265663263653736666262613431353033
       3066323138623463320a623035613565666266313161303961313361626465643062396265386431
       3134
-    email: "showroom-user-12@internal.showroom.run"
+    email: "rhis-user-12@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-13
-    first: showroom-user-13
+  - name: rhis-user-13
+    first: rhis-user-13
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -178,12 +178,12 @@ showroom_users:
       32306163386233373831306161353931616538363163376530366436366137663566353538353633
       6232663165666232630a343461353834393565643333663633363630376266313033316563393834
       3266
-    email: "showroom-user-13@internal.showroom.run"
+    email: "rhis-user-13@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-14
-    first: showroom-user-14
+  - name: rhis-user-14
+    first: rhis-user-14
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -192,12 +192,12 @@ showroom_users:
       32646561303436316631386464396637666539353831633532613265666433613763343531613334
       6663323836616362660a313935376333303231396165353664623561373736343965646335306264
       3938
-    email: "showroom-user-14@internal.showroom.run"
+    email: "rhis-user-14@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-15
-    first: showroom-user-15
+  - name: rhis-user-15
+    first: rhis-user-15
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -206,12 +206,12 @@ showroom_users:
       64653034613633353465383064653365343337636664393361343034333461623264313038363332
       3035346136353963660a363063663838313161653936363934653737373461613933356631316431
       6237
-    email: "showroom-user-15@internal.showroom.run"
+    email: "rhis-user-15@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-16
-    first: showroom-user-16
+  - name: rhis-user-16
+    first: rhis-user-16
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -220,12 +220,12 @@ showroom_users:
       32356137663566383138343630633564393635313734643131653132336634313233383966343265
       6331316362386232610a616165303565636162383166613535356233333033353937623162326564
       6435
-    email: "showroom-user-16@internal.showroom.run"
+    email: "rhis-user-16@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-17
-    first: showroom-user-17
+  - name: rhis-user-17
+    first: rhis-user-17
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -234,12 +234,12 @@ showroom_users:
       33386536376433326136353431663063666231393836316361346131316233666164313161313865
       3963616565373062380a313437613132333132386330333436313834346130623362653339633562
       6134
-    email: "showroom-user-17@internal.showroom.run"
+    email: "rhis-user-17@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-18
-    first: showroom-user-18
+  - name: rhis-user-18
+    first: rhis-user-18
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -248,12 +248,12 @@ showroom_users:
       63393836653933343962373036303131333333326337633065333532366137353131326130323166
       6535383063366332350a393936326232393262653333333363623232613935323134326339386561
       3739
-    email: "showroom-user-18@internal.showroom.run"
+    email: "rhis-user-18@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-19
-    first: showroom-user-19
+  - name: rhis-user-19
+    first: rhis-user-19
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -262,12 +262,12 @@ showroom_users:
       37383762623530626433313330353633336534373361613464353330643365643764303263656236
       6666623831343735610a666531643266343565343062623739633534613437643335363335653665
       6665
-    email: "showroom-user-19@internal.showroom.run"
+    email: "rhis-user-19@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-20
-    first: showroom-user-20
+  - name: rhis-user-20
+    first: rhis-user-20
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -276,12 +276,12 @@ showroom_users:
       39373336636237393939313839643237316531643162663764623163366661346366643236333366
       3538616430326634650a623432343062623162313131646633643861326131623139656633313837
       3334
-    email: "showroom-user-20@internal.showroom.run"
+    email: "rhis-user-20@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-21
-    first: showroom-user-21
+  - name: rhis-user-21
+    first: rhis-user-21
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -290,12 +290,12 @@ showroom_users:
       39303437663632636163363766316262323263303739373437623463333439353438336636383365
       3230646330323666650a643161306162636131396634333032356161336364303631653337363931
       6166
-    email: "showroom-user-21@internal.showroom.run"
+    email: "rhis-user-21@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-22
-    first: showroom-user-22
+  - name: rhis-user-22
+    first: rhis-user-22
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -304,12 +304,12 @@ showroom_users:
       65396465333736336436396563616335353839393162626136336131393739326231643466306233
       6336656530353461310a353532643364303931396637356132623432363730326334303162373332
       6361
-    email: "showroom-user-22@internal.showroom.run"
+    email: "rhis-user-22@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-23
-    first: showroom-user-23
+  - name: rhis-user-23
+    first: rhis-user-23
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -318,12 +318,12 @@ showroom_users:
       37313739663436373132663162643863306233306161393732653463623832343338333239653337
       6538366238343738330a306232306434363537626639636139323435333666346262633464396433
       3430
-    email: "showroom-user-23@internal.showroom.run"
+    email: "rhis-user-23@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-24
-    first: showroom-user-24
+  - name: rhis-user-24
+    first: rhis-user-24
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -332,12 +332,12 @@ showroom_users:
       37306235313162646531336262343031386665393531353833383536326337323030306530623438
       6666656130353930330a343764656466396636303863613137383435363233303335393366663037
       3237
-    email: "showroom-user-24@internal.showroom.run"
+    email: "rhis-user-24@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-25
-    first: showroom-user-25
+  - name: rhis-user-25
+    first: rhis-user-25
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -346,12 +346,12 @@ showroom_users:
       39623431356133343632303266363131623931343037363439663131313163356632306530343734
       3738636164326133340a653338356666623530653235356465323831363236316638363065653062
       6633
-    email: "showroom-user-25@internal.showroom.run"
+    email: "rhis-user-25@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-26
-    first: showroom-user-26
+  - name: rhis-user-26
+    first: rhis-user-26
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -360,12 +360,12 @@ showroom_users:
       34383261373335343239396664396639646264653637303061616363343032326166353164616562
       3335616438643334650a353665626434313232616137633462396439653166616230353765396130
       3661
-    email: "showroom-user-26@internal.showroom.run"
+    email: "rhis-user-26@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-27
-    first: showroom-user-27
+  - name: rhis-user-27
+    first: rhis-user-27
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -374,12 +374,12 @@ showroom_users:
       61633163646432343939313630613963383565633566376266656130376465656238373761366461
       3864383337326334650a333934626566333636316130353834643536383333666435336139643330
       6464
-    email: "showroom-user-27@internal.showroom.run"
+    email: "rhis-user-27@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-28
-    first: showroom-user-28
+  - name: rhis-user-28
+    first: rhis-user-28
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -388,12 +388,12 @@ showroom_users:
       63613538663866346662316338303735333434663433373963626366373462613431636338333866
       6239623739323336650a383935626638616336333835303431626339393136663137396565343736
       3231
-    email: "showroom-user-28@internal.showroom.run"
+    email: "rhis-user-28@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-29
-    first: showroom-user-29
+  - name: rhis-user-29
+    first: rhis-user-29
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -402,12 +402,12 @@ showroom_users:
       39626264633262613430626462646631613564393134366137663134653330666138376164613264
       6535633130633465360a336632356530346138623164646135316336633962393835363635343031
       3663
-    email: "showroom-user-29@internal.showroom.run"
+    email: "rhis-user-29@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
-  - name: showroom-user-30
-    first: showroom-user-30
+  - name: rhis-user-30
+    first: rhis-user-30
     last: redhat
     password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
@@ -416,7 +416,7 @@ showroom_users:
       39613435666430613736353438323832386533333566313964623132643665306637313330636430
       3265666264663262640a616563643063376534316661323864376231396366623066323962643033
       6665
-    email: "showroom-user-30@internal.showroom.run"
+    email: "rhis-user-30@internal.showroom.run"
     passwordexpiration: "2055-04-01 23:59:59"
     update_password: on_create
     state: present
@@ -424,97 +424,97 @@ showroom_users:
 showroom_group_users:
   - group: admins
     user:
-      - "showroom-user-1"
-      - "showroom-user-2"
-      - "showroom-user-3"
-      - "showroom-user-4"
-      - "showroom-user-5"
-      - "showroom-user-6"
-      - "showroom-user-7"
-      - "showroom-user-8"
-      - "showroom-user-9"
-      - "showroom-user-10"
-      - "showroom-user-11"
-      - "showroom-user-12"
-      - "showroom-user-13"
-      - "showroom-user-14"
-      - "showroom-user-15"
-      - "showroom-user-16"
-      - "showroom-user-17"
-      - "showroom-user-18"
-      - "showroom-user-19"
-      - "showroom-user-20"
-      - "showroom-user-21"
-      - "showroom-user-22"
-      - "showroom-user-23"
-      - "showroom-user-24"
-      - "showroom-user-25"
-      - "showroom-user-26"
-      - "showroom-user-27"
-      - "showroom-user-28"
-      - "showroom-user-29"
-      - "showroom-user-30"
+      - "rhis-user-1"
+      - "rhis-user-2"
+      - "rhis-user-3"
+      - "rhis-user-4"
+      - "rhis-user-5"
+      - "rhis-user-6"
+      - "rhis-user-7"
+      - "rhis-user-8"
+      - "rhis-user-9"
+      - "rhis-user-10"
+      - "rhis-user-11"
+      - "rhis-user-12"
+      - "rhis-user-13"
+      - "rhis-user-14"
+      - "rhis-user-15"
+      - "rhis-user-16"
+      - "rhis-user-17"
+      - "rhis-user-18"
+      - "rhis-user-19"
+      - "rhis-user-20"
+      - "rhis-user-21"
+      - "rhis-user-22"
+      - "rhis-user-23"
+      - "rhis-user-24"
+      - "rhis-user-25"
+      - "rhis-user-26"
+      - "rhis-user-27"
+      - "rhis-user-28"
+      - "rhis-user-29"
+      - "rhis-user-30"
   - group: aapgroup-user
     user:
-      - "showroom-user-1"
-      - "showroom-user-2"
-      - "showroom-user-3"
-      - "showroom-user-4"
-      - "showroom-user-5"
-      - "showroom-user-6"
-      - "showroom-user-7"
-      - "showroom-user-8"
-      - "showroom-user-9"
-      - "showroom-user-10"
-      - "showroom-user-11"
-      - "showroom-user-12"
-      - "showroom-user-13"
-      - "showroom-user-14"
-      - "showroom-user-15"
-      - "showroom-user-16"
-      - "showroom-user-17"
-      - "showroom-user-18"
-      - "showroom-user-19"
-      - "showroom-user-20"
-      - "showroom-user-21"
-      - "showroom-user-22"
-      - "showroom-user-23"
-      - "showroom-user-24"
-      - "showroom-user-25"
-      - "showroom-user-26"
-      - "showroom-user-27"
-      - "showroom-user-28"
-      - "showroom-user-29"
-      - "showroom-user-30"
+      - "rhis-user-1"
+      - "rhis-user-2"
+      - "rhis-user-3"
+      - "rhis-user-4"
+      - "rhis-user-5"
+      - "rhis-user-6"
+      - "rhis-user-7"
+      - "rhis-user-8"
+      - "rhis-user-9"
+      - "rhis-user-10"
+      - "rhis-user-11"
+      - "rhis-user-12"
+      - "rhis-user-13"
+      - "rhis-user-14"
+      - "rhis-user-15"
+      - "rhis-user-16"
+      - "rhis-user-17"
+      - "rhis-user-18"
+      - "rhis-user-19"
+      - "rhis-user-20"
+      - "rhis-user-21"
+      - "rhis-user-22"
+      - "rhis-user-23"
+      - "rhis-user-24"
+      - "rhis-user-25"
+      - "rhis-user-26"
+      - "rhis-user-27"
+      - "rhis-user-28"
+      - "rhis-user-29"
+      - "rhis-user-30"
   - group: default-ssh-group
     user:
-      - "showroom-user-1"
-      - "showroom-user-2"
-      - "showroom-user-3"
-      - "showroom-user-4"
-      - "showroom-user-5"
-      - "showroom-user-6"
-      - "showroom-user-7"
-      - "showroom-user-8"
-      - "showroom-user-9"
-      - "showroom-user-10"
-      - "showroom-user-11"
-      - "showroom-user-12"
-      - "showroom-user-13"
-      - "showroom-user-14"
-      - "showroom-user-15"
-      - "showroom-user-16"
-      - "showroom-user-17"
-      - "showroom-user-18"
-      - "showroom-user-19"
-      - "showroom-user-20"
-      - "showroom-user-21"
-      - "showroom-user-22"
-      - "showroom-user-23"
-      - "showroom-user-24"
-      - "showroom-user-25"
-      - "showroom-user-26"
-      - "showroom-user-27"
-      - "showroom-user-28"
-      - "showroom-user-29"
-      - "showroom-user-30"
+      - "rhis-user-1"
+      - "rhis-user-2"
+      - "rhis-user-3"
+      - "rhis-user-4"
+      - "rhis-user-5"
+      - "rhis-user-6"
+      - "rhis-user-7"
+      - "rhis-user-8"
+      - "rhis-user-9"
+      - "rhis-user-10"
+      - "rhis-user-11"
+      - "rhis-user-12"
+      - "rhis-user-13"
+      - "rhis-user-14"
+      - "rhis-user-15"
+      - "rhis-user-16"
+      - "rhis-user-17"
+      - "rhis-user-18"
+      - "rhis-user-19"
+      - "rhis-user-20"
+      - "rhis-user-21"
+      - "rhis-user-22"
+      - "rhis-user-23"
+      - "rhis-user-24"
+      - "rhis-user-25"
+      - "rhis-user-26"
+      - "rhis-user-27"
+      - "rhis-user-28"
+      - "rhis-user-29"
+      - "rhis-user-30"
