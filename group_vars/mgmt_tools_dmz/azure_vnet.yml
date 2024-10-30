@@ -1,3 +1,3 @@
 ---
 azure_subnet_address_prefix: "{{ azure_subnet_address_prefix_mgmt_tools_dmz }}"
-azure_subnet: "subnet-mgmt-{{ network_zone }}-{{ deployment_environment }}"
+azure_subnet: subnet-mgmt-{{ network_zone }}-{{ deployment_environment }}

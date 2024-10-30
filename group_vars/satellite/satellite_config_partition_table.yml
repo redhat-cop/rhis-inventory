@@ -3,7 +3,7 @@ satellite_config_partition_tables:
   - name: pt_uefi_default
     locations:
       - Intranet
-#      - DMZ
+    #      - DMZ
     layout: |
       zerombr
       # Only touch sda, ignore all other disks

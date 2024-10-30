@@ -20,7 +20,6 @@ mgmt_intra:
           children:
             rootca:
             github_runner:
-
 work:
   children:
     work_intra:
@@ -42,7 +41,6 @@ work_intra:
           children:
             workload_servers_intra_prod_rhel8:
             workload_servers_intra_prod_rhel9:
-
 # work_dmz:
 #   children:
 #     mgmt_tools_dmz:
@@ -70,36 +68,35 @@ work_intra:
 # Bastion
 bastion:
   hosts:
-    hermes.internal.showroom.run:     # bastion host
+    hermes.internal.showroom.run: # bastion host
       ansible_host: hermes.showroom.run
 
 # Misc
 rootca:
   hosts:
-    zeus.internal.showroom.run:       # rootCA
+    zeus.internal.showroom.run: # rootCA
 
 github_runner:
   hosts:
-    poseidon.internal.showroom.run:   # self-hosted github runner
+    poseidon.internal.showroom.run: # self-hosted github runner
 
 # IDM
 ipaserver:
   hosts:
-    athena.internal.showroom.run:     # idm primary server
+    athena.internal.showroom.run: # idm primary server
 
 ipareplicas:
   hosts:
-    hestia.internal.showroom.run:     # idm replica server
-    demeter.internal.showroom.run:    # idm hidden replica server
+    hestia.internal.showroom.run: # idm replica server
+    demeter.internal.showroom.run: # idm hidden replica server
 
 ipahidden:
   hosts:
     demeter.internal.showroom.run:
-
 # Satellite
 satellite:
   hosts:
-    aphrodite.internal.showroom.run:  # satellite
+    aphrodite.internal.showroom.run: # satellite
 
 # satellite_dmz:
 #   hosts:
@@ -112,46 +109,45 @@ aap:
 
 aap_controller:
   hosts:
-    clotho.internal.showroom.run:     # aap controller
+    clotho.internal.showroom.run: # aap controller
 
 aap_pah:
   hosts:
-    lachesis.internal.showroom.run:   # aap pah
+    lachesis.internal.showroom.run: # aap pah
 
 aap_db:
   hosts:
-    atropos.internal.showroom.run:    # aap db
+    atropos.internal.showroom.run: # aap db
 
 aap_execution_node_intra:
   hosts:
-    achilles.internal.showroom.run:   # aap intra execution node
+    achilles.internal.showroom.run: # aap intra execution node
 
 # Workloads_intra
 workload_servers_intra_dev_rhel8:
   hosts:
-    jupiter.internal.showroom.run:    # rhel8.9
-    uranus.internal.showroom.run:     # rhel8.10
+    jupiter.internal.showroom.run: # rhel8.9
+    uranus.internal.showroom.run: # rhel8.10
 
 workload_servers_intra_dev_rhel9:
   hosts:
-    juno.internal.showroom.run:       # rhel9.3
+    juno.internal.showroom.run: # rhel9.3
 
 workload_servers_intra_qa_rhel8:
   hosts:
-    minerva.internal.showroom.run:    # rhel8.9
+    minerva.internal.showroom.run: # rhel8.9
 
 workload_servers_intra_qa_rhel9:
   hosts:
-    mercury.internal.showroom.run:    # rhel9.3
+    mercury.internal.showroom.run: # rhel9.3
 
 workload_servers_intra_prod_rhel8:
   hosts:
-    neptune.internal.showroom.run:    # rhel8.9
+    neptune.internal.showroom.run: # rhel8.9
 
 workload_servers_intra_prod_rhel9:
   hosts:
-    venus.internal.showroom.run:      # rhel9.3
-
+    venus.internal.showroom.run: # rhel9.3
 
 # Workloads_dmz
 # workload_servers_intra_dev_rhel8:

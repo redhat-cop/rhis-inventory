@@ -1,2 +1,2 @@
 ---
-azure_rg: "rg-{{ infrastructure_type }}-intra-{{ deployment_environment }}"
+azure_rg: rg-{{ infrastructure_type }}-intra-{{ deployment_environment }}

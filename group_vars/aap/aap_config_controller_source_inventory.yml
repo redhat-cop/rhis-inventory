@@ -1,7 +1,7 @@
 ---
 controller_inventory_sources:
-  - name: "source-github-inventory"
-    description: "Sourced Inventory from SCM Project"
+  - name: source-github-inventory
+    description: Sourced Inventory from SCM Project
     source: scm
     source_project: "{{ aap_config_inventory_repo_name }}"
     source_path: inventory.yml
@@ -15,11 +15,11 @@ controller_inventory_sources:
     execution_environment: "{{ aap_config_default_execution_environment }}"
     wait: true
 
-  - name: "source-satellite-inventory"
-    description: "Sourced Inventory from Satellite"
-    source: "satellite6"
-    inventory: "Satellite Inventory"
-    credential: "Satellite Credential"
+  - name: source-satellite-inventory
+    description: Sourced Inventory from Satellite
+    source: satellite6
+    inventory: Satellite Inventory
+    credential: Satellite Credential
     organization: "{{ aap_config_organization }}"
     overwrite: true
     overwrite_vars: true
@@ -28,11 +28,11 @@ controller_inventory_sources:
     execution_environment: "{{ aap_config_default_execution_environment }}"
     wait: true
 
-  - name: "source-insights-inventory"
-    description: "Insights Inventory for Insight Remediations"
-    source: "insights"
-    inventory: "Insights Inventory"
-    credential: "Insights Credential"
+  - name: source-insights-inventory
+    description: Insights Inventory for Insight Remediations
+    source: insights
+    inventory: Insights Inventory
+    credential: Insights Credential
     organization: "{{ aap_config_organization }}"
     overwrite: true
     overwrite_vars: true
