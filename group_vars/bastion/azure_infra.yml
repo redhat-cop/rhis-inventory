@@ -1,0 +1,2 @@
+---
+azure_rg: "rg-{{ infrastructure_type }}-intra-{{ deployment_environment }}"

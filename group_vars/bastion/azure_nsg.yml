@@ -1,0 +1,146 @@
+---
+azure_subnet_nsg_rules:
+  # Inbound
+
+  # SSH connection from Internet
+  - name: "AllowSSHInBound"
+    protocol: Tcp
+    direction: Inbound
+    priority: 200
+    access: Allow
+    source_address_prefix: "Internet"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "22"
+
+  # Squid connection from Internet
+  - name: "AllowSquidInbound"
+    protocol: Tcp
+    direction: Inbound
+    priority: 201
+    access: Allow
+    source_address_prefix: "Internet"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "3128"
+
+  # Deny all other inbound
+  - name: "DenyOtherInBound"
+    protocol: "*"
+    direction: Inbound
+    priority: 500
+    access: Deny
+    source_address_prefix: "*"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_vnet_address_prefix }}"
+    destination_port_range: "*"
+
+  # Outbound
+
+  # SSH connection to other vnets
+  - name: "AllowSSHOutBound"
+    protocol: Tcp
+    direction: Outbound
+    priority: 200
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "VirtualNetwork"
+    destination_port_range: "22"
+
+  # HTTP connection to VirtualNetwork
+  - name: "AllowHTTPOutBound"
+    protocol: Tcp
+    direction: Outbound
+    priority: 201
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "VirtualNetwork"
+    destination_port_range: "80"
+  # HTTPS connection to VirtualNetwork
+  - name: "AllowHTTPSOutBound"
+    protocol: Tcp
+    direction: Outbound
+    priority: 202
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "VirtualNetwork"
+    destination_port_range: "443"
+
+  # IDM connection from mgmt_intra
+  - name: "AllowLDAPOutBound"
+    protocol: Tcp
+    direction: Outbound
+    priority: 203
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_subnet_address_prefix_mgmt_intra }}"
+    destination_port_range: "389"
+  - name: "AllowLDAPSOutBound"
+    protocol: Tcp
+    direction: Outbound
+    priority: 204
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_subnet_address_prefix_mgmt_intra }}"
+    destination_port_range: "636"
+  - name: "AllowKerberosOutBound-1"
+    protocol: "*"
+    direction: Outbound
+    priority: 205
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_subnet_address_prefix_mgmt_intra }}"
+    destination_port_range: "88"
+  - name: "AllowKerberosOutBound-2"
+    protocol: "*"
+    direction: Outbound
+    priority: 206
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_subnet_address_prefix_mgmt_intra }}"
+    destination_port_range: "464"
+  - name: "AllowDNSOutBoundTCP"
+    protocol: "*"
+    direction: Outbound
+    priority: 207
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_subnet_address_prefix_mgmt_intra }}"
+    destination_port_range: "53"
+  - name: "AllowNTPOutBound"
+    protocol: Udp
+    direction: Outbound
+    priority: 208
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_subnet_address_prefix_mgmt_intra }}"
+    destination_port_range: "123"
+  - name: "AllowKadmindOutBound"
+    protocol: Tcp
+    direction: Outbound
+    priority: 209
+    access: Allow
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "{{ azure_subnet_address_prefix_mgmt_intra }}"
+    destination_port_range: "749"
+
+  # Deny other vnet connection
+  - name: "DenyOtherVnetOutBound"
+    protocol: "*"
+    direction: Outbound
+    priority: 500
+    access: Deny
+    source_address_prefix: "{{ azure_vnet_address_prefix }}"
+    source_port_range: "*"
+    destination_address_prefix: "VirtualNetwork"
+    destination_port_range: "*"

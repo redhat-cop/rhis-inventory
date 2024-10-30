@@ -1,0 +1,14 @@
+---
+satellite_sync_plans:
+  - name: Daily OS repo sync - 07:00
+    interval: daily
+    sync_date: "{{ lookup('pipe', 'date +%Y-%m-%d') }} 07:00:00"
+    products:
+      - Red Hat Enterprise Linux for x86_64
+      - Red Hat Ansible Automation Platform
+      - Red Hat Satellite Capsule
+  - name: Weekly custom repo sync - 08:00
+    interval: weekly
+    sync_date: "{{ lookup('pipe', 'date +%Y-%m-%d') }} 08:00:00"
+    products:
+      - Epel

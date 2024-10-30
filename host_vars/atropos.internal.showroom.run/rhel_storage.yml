@@ -1,0 +1,12 @@
+---
+run_rhel_storage: true
+
+storage_pools:
+  - name: awx_vg
+    disks:
+      - sdb
+    volumes:
+      - name: awx_lv
+        size: "100 GB"
+        mount_point: "/var/lib/pgsql"
+        state: present

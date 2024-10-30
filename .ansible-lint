@@ -1,0 +1,9 @@
+---
+offline: false
+
+exclude_paths:
+  - .github/
+
+warn_list:
+  - name[template]
+  - yaml[line-length]

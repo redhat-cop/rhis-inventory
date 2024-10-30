@@ -1,0 +1,7 @@
+---
+controller_applications:
+  - name: GitHub Authentication Application
+    description: Application used for GitHub Worfklow Authentication
+    organization: "{{ aap_config_organization }}"
+    authorization_grant_type: password
+    client_type: public

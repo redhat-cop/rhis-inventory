@@ -1,0 +1,14 @@
+---
+pki_idm_generate_certs: false
+generate_certs: false
+update_ca_trust: false
+
+pki_idm_generate_certs_csr_digest: "aes256"
+pki_idm_generate_certs_csr_common_name: "{{ inventory_hostname }}"
+pki_idm_generate_certs_csr_organization_name: "{{ azure_dns_private_dns_zone | upper }}"
+pki_idm_generate_certs_csr_organization_unit_name: "RHIS Project"
+pki_idm_generate_certs_csr_locality_name: "Frankfurt am Main"
+pki_idm_generate_certs_csr_state_or_province_name: "Hessen"
+pki_idm_generate_certs_csr_country_name: "DE"
+pki_idm_generate_certs_csr_email_address: "admin@{{ azure_dns_private_dns_zone }}"
+pki_idm_generate_certs_csr_subject_alt_name: "DNS:{{ inventory_hostname }}"

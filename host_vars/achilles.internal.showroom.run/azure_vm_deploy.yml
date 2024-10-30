@@ -1,0 +1,5 @@
+---
+azure_vm_deploy_vm_size: "Standard_E2bs_v5"
+vm_tags:
+  sequencestart: "4"
+  sequencestop: "2"

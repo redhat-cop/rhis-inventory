@@ -1,0 +1,67 @@
+---
+satellite_operations: true
+
+satellite_initial_location: "Intranet"
+satellite_initial_organization: "RHIS"
+satellite_location: "{{ satellite_initial_location }}"
+satellite_organization: "{{ satellite_initial_organization }}"
+satellite_server_url: "https://{{ inventory_hostname }}"
+satellite_validate_certs: true
+satellite_admin_email: "{{ satellite_username }}@{{ satellite_prepare_csr_organization_name }}"
+
+satellite_installer_scenario: "satellite"
+satellite_installer_verbose: true
+satellite_installer_options:
+  - '--skip-checks-i-know-better'
+  - '--foreman-initial-organization "{{ satellite_initial_organization }}"'
+  - '--foreman-initial-location "{{ satellite_initial_location }}"'
+  - '--foreman-initial-admin-username "{{ satellite_username }}"'
+  - '--foreman-initial-admin-password "{{ satellite_password }}"'
+  - '--foreman-initial-admin-email "{{ satellite_admin_email }}"'
+  - '--foreman-initial-admin-first-name  "Satellite"'
+  - '--foreman-initial-admin-last-name  "Administrator"'
+  - '--foreman-ipa-authentication true'
+  - '--certs-server-ca-cert "{{ ipa_server_ca_path }}"'
+  - '--certs-server-cert "{{ satellite_prepare_ssl_crt_path }}"'
+  - '--certs-server-key "{{ satellite_prepare_ssl_key_path }}"'
+  - '--enable-foreman-compute-ec2'
+  - '--enable-foreman-compute-libvirt'
+  - '--enable-foreman-compute-vmware'
+  - '--foreman-proxy-dns true'
+  - '--foreman-proxy-dns-managed false'
+  - '--foreman-proxy-dns-provider "nsupdate_gss"'
+  - '--foreman-proxy-dns-server "{{ groups.ipaserver | first }}"'
+  - '--foreman-proxy-dns-tsig-keytab "{{ satellite_prepare_keytab_path }}"'
+  - '--foreman-proxy-dns-tsig-principal "{{ satellite_prepare_foreman_proxy_realm_principal }}"'
+  - '--foreman-proxy-http true'
+  - '--foreman-proxy-realm true'
+  - '--foreman-proxy-realm-keytab "{{ satellite_prepare_keytab_path }}"'
+  - '--foreman-proxy-realm-principal "{{ satellite_prepare_foreman_proxy_realm_principal }}"'
+  - '--foreman-proxy-realm-provider  "freeipa"'
+  - '--foreman-proxy-registration true'
+  - '--foreman-proxy-templates true'
+  - '--foreman-proxy-tftp true'
+  - '--foreman-proxy-content-enable-ansible true'
+  - '--foreman-proxy-content-enable-deb false'
+  - '--foreman-proxy-content-enable-docker true'
+  - '--foreman-proxy-content-enable-file true'
+  - '--foreman-proxy-content-enable-yum true'
+  - '--foreman-proxy-plugin-discovery-install-images true'
+
+#  Currently this must be false - no plugin shipped in repos
+#  - '--foreman-proxy-content-enable-ostree false'
+#  - '--foreman-proxy-content-enable-python true'
+
+# when we are using Satellite as the dhcp server
+#  - '--foreman-proxy-dhcp: false'
+#  - '--foreman-proxy-dhcp-interface: "{{ ansible_facts.interfaces | select('match', '^(e)+') | list | first }}"'
+#  - '--foreman-proxy-dhcp-range: "192.168.140.1 192.168.140.254"'
+#  - '--foreman-proxy-dhcp-gateway: "192.168.140.1"'
+#  - '--foreman-proxy-dhcp-nameservers: "192.168.140.10"'
+#  - '--foreman-proxy-dhcp-option-domain: "[{{ satellite_domain }}]"'
+#  - '--foreman-proxy-dhcp-pxeserver: "{{ satellite_fqdn }}"'
+#  - '--foreman-proxy-dhcp-network: "192.168.140.0"'
+#  - '--foreman-proxy-dhcp-netmask: "255.255.252.0"'
+
+# when deploying Satellite < 6.15 add the following
+#  - '--foreman-proxy-content-enable-katello-agent false'

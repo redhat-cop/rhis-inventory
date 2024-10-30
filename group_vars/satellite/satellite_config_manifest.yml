@@ -1,0 +1,5 @@
+---
+# Variables to upload manifest to Satellite (redhat.satellite.manifest)
+satellite_manifest_path: "~/manifest.zip"
+satellite_manifest_download: true
+satellite_manifest_uuid: "51ee7560-e8b3-441e-b266-f2817db5b39c"

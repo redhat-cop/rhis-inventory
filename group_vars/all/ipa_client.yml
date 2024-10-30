@@ -1,0 +1,11 @@
+---
+ipaclient_mkhomedir: true
+ipaclient_no_ntp: true
+ipaclient_configure_dns_resolver: true
+ipasssd_enable_dns_updates: true
+
+ipaclient_hostname: "{{ inventory_hostname }}"
+ipaclient_domain: "{{ azure_dns_private_dns_zone }}"
+ipaclient_realm: "{{ azure_dns_private_dns_zone | upper }}"
+ipa_server_ca_path: "/etc/ipa/ca.crt"
+ipa_client_trust_path: "/etc/pki/ca-trust/source/anchors/ipa.crt"

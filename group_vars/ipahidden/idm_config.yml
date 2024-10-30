@@ -1,0 +1,3 @@
+---
+idm_config: true
+idm_config_reverse_dns_networks: "{{ azure_networks }}"

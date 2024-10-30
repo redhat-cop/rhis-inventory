@@ -1,0 +1,17 @@
+---
+controller_execution_environments:
+  - name: "Automation Hub Default execution environment"
+    image: "{{ groups.aap_pah | first }}/ee-supported-rhel8:latest"
+    credential: "Default Execution Environment Registry Credential"
+
+  - name: "Automation Hub Minimal execution environment"
+    image: "{{ groups.aap_pah | first }}/ee-minimal-rhel8:latest"
+    credential: "Default Execution Environment Registry Credential"
+
+  - name: "Automation Hub Default Remote execution environment"
+    image: "{{ groups.aap_pah | first }}/custom_ee_showroom:latest"
+    credential: "Default Execution Environment Registry Credential"
+
+  - name: "Default execution environment"
+    image: "registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel8:latest"
+    state: absent

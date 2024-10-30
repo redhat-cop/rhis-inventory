@@ -1,0 +1,78 @@
+---
+idm_hbac_rules:
+  - name: admin_allow_all
+    description: "Realm Admin accesses all hosts"
+    state: present
+    hostcategory: all
+    servicecategory: all
+    group:
+      - admins
+    user:
+      - "{{ default_ssh_vm_user }}"
+
+  - name: sat-operators
+    description: "Satellite Operators can access the Satellite and Capsule Servers"
+    state: present
+    hostgroup:
+      - sat-servers
+    servicecategory: all
+    group:
+      - satgroup-operator
+
+  - name: aap-operators
+    description: "Ansible Automation Platform Operators can access AAP Servers"
+    state: present
+    hostgroup:
+      - aap-servers
+    servicecategory: all
+    group:
+      - aapgroup-administrator
+      - aapgroup-operator
+
+  - name: ssh-access
+    description: "Basic ssh access to all servers"
+    state: present
+    hostcategory: all
+    hbacsvc:
+      - sshd
+    group:
+      - default-ssh-group
+
+  - name: ansible-admin-access
+    description: "Ansible admin access to all servers"
+    state: present
+    hostgroup:
+      - all-servers
+    hbacsvc:
+      - sudo
+      - sudo-i
+    group:
+      - ansible-admin-group
+    user:
+      - "{{ default_ssh_vm_user }}"
+
+  - name: bastion-access
+    description: "Access configuration for bastion VM"
+    state: present
+    hostgroup:
+      - bastion-servers
+    hbacsvc:
+      - sudo
+      - sudo-i
+    group:
+      - bastion-group
+
+  - name: github-runner-access
+    description: "Access configuration for github runner VM"
+    state: present
+    hostgroup:
+      - github-runner-servers
+    hbacsvc:
+      - sudo
+      - sudo-i
+      - su-l
+    group:
+      - github-runner-group
+
+  - name: allow_all
+    state: disabled

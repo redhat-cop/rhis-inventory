@@ -1,0 +1,5 @@
+---
+azure_vm_deploy_vm_size: "Standard_D4s_v4"
+vm_tags:
+  sequencestart: "4"
+  sequencestop: "2"

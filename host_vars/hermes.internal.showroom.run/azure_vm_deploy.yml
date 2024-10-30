@@ -1,0 +1,6 @@
+---
+azure_vm_deploy_vm_size: "Standard_E2bs_v5"
+vm_tags:
+  sequencestart: "3"
+  sequencestop: "3"
+manage_public_ip: true

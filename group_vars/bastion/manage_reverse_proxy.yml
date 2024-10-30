@@ -1,0 +1,4 @@
+---
+manage_reverse_proxy: true
+
+reverse_proxy_dns_record: "*.{{ azure_dns_private_dnz_zone_subdomain }}"
