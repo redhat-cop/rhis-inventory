@@ -3,7 +3,7 @@ name: AAP Jobs CI/CD
 run-name: AAP action Configure Controller
 on:
   push:
-    branches: ["main", "devel"]
+    branches: ["main"]
     paths:
       - 'group_vars/aap/aap_config*'
 
