@@ -1,4 +1,4 @@
 ---
 enforce_cis: true
 sudo_require_authentication: false
-var_system_crypto_policy: "FIPS"
+var_system_crypto_policy: FIPS

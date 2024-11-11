@@ -1,18 +1,18 @@
 ---
 satellite_provisioning_templates:
-  - name: "Default VM Provisioning Template"
+  - name: Default VM Provisioning Template
     locations:
       - Intranet
       - DMZ
     organizations:
       - "{{ satellite_organization }}"
-    kind: "provision"
+    kind: provision
     locked: false
     operatingsystems:
-      - "RedHat 8.9"
-      - "RHEL 8.10"
-      - "RedHat 9.3"
-      - "RedHat 9.4"
+      - RedHat 8.9
+      - RHEL 8.10
+      - RedHat 9.3
+      - RedHat 9.4
     state: present
     template: |
       <%#
@@ -408,27 +408,26 @@ satellite_provisioning_templates:
       sync
       <%= section_end %>
 
-  - name: "Linux host_init_config default"
+  - name: Linux host_init_config default
     operatingsystems:
-      - "RedHat 8.9"
-      - "RHEL 8.10"
-      - "RedHat 9.3"
-      - "RedHat 9.4"
+      - RedHat 8.9
+      - RHEL 8.10
+      - RedHat 9.3
+      - RedHat 9.4
 
-
-  - name: "Default VM User Data"
+  - name: Default VM User Data
     locations:
       - Intranet
       - DMZ
     organizations:
       - "{{ satellite_organization }}"
-    kind: "user_data"
+    kind: user_data
     locked: false
     operatingsystems:
-      - "RedHat 8.9"
-      - "RHEL 8.10"
-      - "RedHat 9.3"
-      - "RedHat 9.4"
+      - RedHat 8.9
+      - RHEL 8.10
+      - RedHat 9.3
+      - RedHat 9.4
     state: present
     template: |
       <%#

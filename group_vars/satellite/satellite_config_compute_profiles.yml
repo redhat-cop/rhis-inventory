@@ -1,50 +1,48 @@
 ---
 satellite_compute_profiles:
-  - name: "Azure-Intranet-Management-Default-VM"
+  - name: Azure-Intranet-Management-Default-VM
     compute_attributes:
-      - compute_resource: "Azure_Management"
+      - compute_resource: Azure_Management
         vm_attrs:
-          resource_group: "rg-mgmt-intra-dev"
-          platform: "Linux"
+          resource_group: rg-mgmt-intra-dev
+          platform: Linux
           username: "{{ vm_user }}"
           ssh_key_data: "{{ vm_user_public_key }}"
           premium_os_disk: "true"
           os_disk_size_gb: "41"
-          os_disk_caching: "ReadWrite"
+          os_disk_caching: ReadWrite
           script_command: ""
           script_uris: ""
           tags: ""
           nvidia_gpu_extension: "false"
           interfaces_attributes:
             0:
-              network: "/subscriptions/{{ azure_subscription_id }}/resourceGroups/rg-mgmt-intra-dev/\
-                providers/Microsoft.Network/virtualNetworks/vnet-mgmt-intra-dev/subnets/subnet-mgmt-intra-dev"
-              public_ip: "None"
+              network: /subscriptions/{{ azure_subscription_id }}/resourceGroups/rg-mgmt-intra-dev/providers/Microsoft.Network/virtualNetworks/vnet-mgmt-intra-dev/subnets/subnet-mgmt-intra-dev
+              public_ip: None
               private_ip: "false"
           volumes_attributes:
             0:
               disk_size_gb: 1
 
-  - name: "Azure-Intranet-Workload-Default-VM"
+  - name: Azure-Intranet-Workload-Default-VM
     compute_attributes:
-      - compute_resource: "Azure_Workload"
+      - compute_resource: Azure_Workload
         vm_attrs:
-          resource_group: "rg-work-intra-dev"
-          platform: "Linux"
+          resource_group: rg-work-intra-dev
+          platform: Linux
           username: "{{ vm_user }}"
           ssh_key_data: "{{ vm_user_public_key }}"
           premium_os_disk: "true"
           os_disk_size_gb: "41"
-          os_disk_caching: "ReadWrite"
+          os_disk_caching: ReadWrite
           script_command: ""
           script_uris: ""
           tags: ""
           nvidia_gpu_extension: "false"
           interfaces_attributes:
             0:
-              network: "/subscriptions/{{ hostvars[groups.work | first]['azure_subscription_id'] }}/resourceGroups/rg-work-intra-dev/\
-                providers/Microsoft.Network/virtualNetworks/vnet-work-intra-dev/subnets/subnet-work-intra-dev"
-              public_ip: "None"
+              network: /subscriptions/{{ hostvars[groups.work | first]['azure_subscription_id'] }}/resourceGroups/rg-work-intra-dev/providers/Microsoft.Network/virtualNetworks/vnet-work-intra-dev/subnets/subnet-work-intra-dev
+              public_ip: None
               private_ip: "false"
           volumes_attributes:
             0:

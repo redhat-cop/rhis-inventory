@@ -1,7 +1,7 @@
 ---
 ah_ee_registries:
-  - name: "Red Hat Registry"
+  - name: Red Hat Registry
     sync: true
-    url: "https://registry.redhat.io"
+    url: https://registry.redhat.io
     username: "{{ registry_username }}"
     password: "{{ registry_token }}"

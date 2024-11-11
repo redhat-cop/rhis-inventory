@@ -1,6 +1,6 @@
 ---
 ee_builder_dir_clean: false
-ee_builder_dir: "."
+ee_builder_dir: .
 ee_update_base_images: false
 ee_base_registry_username: "{{ automationhub_admin_username }}"
 ee_base_registry_password: "{{ automationhub_admin_password }}"

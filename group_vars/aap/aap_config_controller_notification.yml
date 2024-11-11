@@ -1,7 +1,7 @@
 ---
 controller_notifications:
-  - name: "Slack Notifications"
-    description: "Send Job Notifications to the related Channel"
+  - name: Slack Notifications
+    description: Send Job Notifications to the related Channel
     notification_type: slack
     notification_configuration:
       channels:
