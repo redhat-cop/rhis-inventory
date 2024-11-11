@@ -4,5 +4,5 @@ redhat_subscription_password: "{{ hostvars[groups['satellite'][0]]['satellite_pa
 controller_license:
   use_lookup: true
   filters:
-    product_name: "Red Hat Ansible Automation Platform"
-    support_level: "Self-Support"
+    product_name: Red Hat Ansible Automation Platform
+    support_level: Self-Support

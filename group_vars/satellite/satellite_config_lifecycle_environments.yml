@@ -1,8 +1,8 @@
 ---
 satellite_lifecycle_environments:
-  - name: "Dev"
-    prior: "Library"
-  - name: "QA"
-    prior: "Dev"
-  - name: "Prod"
-    prior: "QA"
+  - name: Dev
+    prior: Library
+  - name: QA
+    prior: Dev
+  - name: Prod
+    prior: QA

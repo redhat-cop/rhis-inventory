@@ -11,5 +11,5 @@ ipareplica_realm: "{{ idm_default_dns_zone | upper }}"
 ipareplica_hostname: "{{ inventory_hostname }}"
 ipareplica_forwarders:
   - "{{ azure_dns_ip }}" # Azure IP
-ipareplica_forward_policy: "first"
+ipareplica_forward_policy: first
 ipareplica_no_host_dns: true

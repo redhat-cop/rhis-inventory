@@ -1,3 +1,3 @@
 ---
 pki_rootca: true
-ca_common_name: "RHIS RootCA"
+ca_common_name: RHIS RootCA

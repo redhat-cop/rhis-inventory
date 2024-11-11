@@ -3,14 +3,16 @@ network_zone: intra
 azure_vnet_address_prefix: "{{ azure_vnet_address_prefix_work_intra }}"
 
 vnet_peers:
-  - azure_vnet_peer: "vnet-peer-{{ infrastructure_type }}-{{ network_zone }}-{{ deployment_environment }}-1"
+  - azure_vnet_peer: vnet-peer-{{ infrastructure_type }}-{{ network_zone }}-{{ deployment_environment }}-1
     azure_rg: "{{ hostvars[groups.bastion | first]['azure_rg'] }}"
     azure_vnet: "{{ hostvars[groups.bastion | first]['azure_vnet'] }}"
-    azure_vnet_id: "/subscriptions/{{ hostvars[groups.bastion | first]['azure_subscription_id'] }}/resourceGroups/{{ hostvars[groups.bastion | first]['azure_rg'] }}/providers/Microsoft.Network/virtualNetworks/{{ hostvars[groups.bastion | first]['azure_vnet'] }}"
+    azure_vnet_id: /subscriptions/{{ hostvars[groups.bastion | first]['azure_subscription_id'] }}/resourceGroups/{{ hostvars[groups.bastion | first]['azure_rg'] }}/providers/Microsoft.Network/virtualNetworks/{{
+      hostvars[groups.bastion | first]['azure_vnet'] }}
     azure_subs: "{{ hostvars[groups.bastion | first]['azure_subscription_id'] }}"
 
-  - azure_vnet_peer: "vnet-peer-{{ infrastructure_type }}-{{ network_zone }}-{{ deployment_environment }}-2"
+  - azure_vnet_peer: vnet-peer-{{ infrastructure_type }}-{{ network_zone }}-{{ deployment_environment }}-2
     azure_rg: "{{ hostvars[groups.mgmt_tools | first]['azure_rg'] }}"
     azure_vnet: "{{ hostvars[groups.mgmt_tools | first]['azure_vnet'] }}"
-    azure_vnet_id: "/subscriptions/{{ hostvars[groups.mgmt_tools | first]['azure_subscription_id'] }}/resourceGroups/{{ hostvars[groups.mgmt_tools | first]['azure_rg'] }}/providers/Microsoft.Network/virtualNetworks/{{ hostvars[groups.mgmt_tools | first]['azure_vnet'] }}"
+    azure_vnet_id: /subscriptions/{{ hostvars[groups.mgmt_tools | first]['azure_subscription_id'] }}/resourceGroups/{{ hostvars[groups.mgmt_tools | first]['azure_rg']
+      }}/providers/Microsoft.Network/virtualNetworks/{{ hostvars[groups.mgmt_tools | first]['azure_vnet'] }}
     azure_subs: "{{ hostvars[groups.mgmt_tools | first]['azure_subscription_id'] }}"

@@ -7,10 +7,10 @@ storage_pools:
       - sdb
     volumes:
       - name: pgsql_lv
-        size: "20 GB"
-        mount_point: "/var/lib/pgsql"
+        size: 20 GB
+        mount_point: /var/lib/pgsql
         state: present
       - name: pulp_lv
-        size: "400 GB"
-        mount_point: "/var/lib/pulp"
+        size: 400 GB
+        mount_point: /var/lib/pulp
         state: present

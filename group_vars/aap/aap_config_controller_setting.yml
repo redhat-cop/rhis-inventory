@@ -1,53 +1,53 @@
 ---
 controller_settings:
   settings:
-    AUTH_LDAP_SERVER_URI: "ldap://{{ groups.ipaserver | first }}:389"
-    AUTH_LDAP_BIND_DN: "uid={{ ldap_bind_principal }},cn=users,cn=accounts,{{ ldap_domain_map }}"
+    AUTH_LDAP_SERVER_URI: ldap://{{ groups.ipaserver | first }}:389
+    AUTH_LDAP_BIND_DN: uid={{ ldap_bind_principal }},cn=users,cn=accounts,{{ ldap_domain_map }}
     AUTH_LDAP_BIND_PASSWORD: "{{ ldap_bind_password }}"
-    AUTH_LDAP_USER_DN_TEMPLATE: "uid=%(user)s,cn=users,cn=accounts,{{ ldap_domain_map }}"
-    AUTH_LDAP_GROUP_TYPE: "MemberDNGroupType"
-    AUTH_LDAP_REQUIRE_GROUP: "cn=aapgroup-user,cn=groups,cn=accounts,{{ ldap_domain_map }}"
+    AUTH_LDAP_USER_DN_TEMPLATE: uid=%(user)s,cn=users,cn=accounts,{{ ldap_domain_map }}
+    AUTH_LDAP_GROUP_TYPE: MemberDNGroupType
+    AUTH_LDAP_REQUIRE_GROUP: cn=aapgroup-user,cn=groups,cn=accounts,{{ ldap_domain_map }}
     AUTH_LDAP_GROUP_SEARCH: '["cn=groups,cn=accounts,{{ ldap_domain_map }}","SCOPE_SUBTREE","(objectClass=groupOfNames)"]'
     AUTH_LDAP_GROUP_TYPE_PARAMS:
-      member_attr: "member"
-      name_attr: "cn"
+      member_attr: member
+      name_attr: cn
     AUTH_LDAP_USER_FLAGS_BY_GROUP: '{ "is_superuser": [ "cn=aapgroup-administrator,cn=groups,cn=accounts,{{ ldap_domain_map }}"] }'
     AUTH_LDAP_USER_ATTR_MAP:
-      email: "mail"
-      first_name: "givenName"
-      last_name: "surname"
+      email: mail
+      first_name: givenName
+      last_name: surname
     AUTH_LDAP_ORGANIZATION_MAP:
       Showroom:
-        admins: "cn=aapgroup-administrator,cn=groups,cn=accounts,{{ ldap_domain_map }}"
+        admins: cn=aapgroup-administrator,cn=groups,cn=accounts,{{ ldap_domain_map }}
         remove_users: true
         remove_admins: true
         users: true
     AUTH_LDAP_TEAM_MAP:
       AAP Group Auditor:
-        users: "cn=aapgroup-auditor,cn=groups,cn=accounts,{{ ldap_domain_map }}"
+        users: cn=aapgroup-auditor,cn=groups,cn=accounts,{{ ldap_domain_map }}
         organization: "{{ aap_config_organization }}"
         remove: true
       AAP Group Operator:
-        users: "cn=aapgroup-operator,cn=groups,cn=accounts,{{ ldap_domain_map }}"
+        users: cn=aapgroup-operator,cn=groups,cn=accounts,{{ ldap_domain_map }}
         organization: "{{ aap_config_organization }}"
         remove: true
       AAP Group Developer:
-        users: "cn=aapgroup-developer,cn=groups,cn=accounts,{{ ldap_domain_map }}"
+        users: cn=aapgroup-developer,cn=groups,cn=accounts,{{ ldap_domain_map }}
         organization: "{{ aap_config_organization }}"
         remove: true
       AAP Group Project Manager:
-        users: "cn=aapgroup-proj_manager,cn=groups,cn=accounts,{{ ldap_domain_map }}"
+        users: cn=aapgroup-proj_manager,cn=groups,cn=accounts,{{ ldap_domain_map }}
         organization: "{{ aap_config_organization }}"
         remove: true
       AAP Group Template Manager:
-        users: "cn=aapgroup-template_manager,cn=groups,cn=accounts,{{ ldap_domain_map }}"
+        users: cn=aapgroup-template_manager,cn=groups,cn=accounts,{{ ldap_domain_map }}
         organization: "{{ aap_config_organization }}"
         remove: true
       AAP Group Admin:
-        users: "cn=aapgroup-administrator,cn=groups,cn=accounts,{{ ldap_domain_map }}"
+        users: cn=aapgroup-administrator,cn=groups,cn=accounts,{{ ldap_domain_map }}
         organization: "{{ aap_config_organization }}"
         remove: true
-    TOWER_URL_BASE: "https://{{ groups.aap_controller | first }}"
+    TOWER_URL_BASE: https://{{ groups.aap_controller | first }}
     INSIGHTS_TRACKING_STATE: true
     AWX_ROLES_ENABLED: true
     AWX_COLLECTIONS_ENABLED: true

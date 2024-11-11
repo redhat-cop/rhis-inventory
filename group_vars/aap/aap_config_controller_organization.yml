@@ -1,6 +1,6 @@
 ---
 controller_organizations:
-  - name: "Default"
+  - name: Default
     state: absent
 
   - name: "{{ aap_config_organization }}"

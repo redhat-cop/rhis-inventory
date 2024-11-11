@@ -1,14 +1,14 @@
 ---
 ah_collection_repositories:
-  - name: "community"
-    description: "Community content repository"
+  - name: community
+    description: Community content repository
     remote: community
     wait: true
-  - name: "rh-certified"
-    description: "Red Hat certified content repository"
+  - name: rh-certified
+    description: Red Hat certified content repository
     remote: rh-certified
     wait: true
-  - name: "validated"
-    description: "Validated collections"
+  - name: validated
+    description: Validated collections
     remote: validated
     wait: true

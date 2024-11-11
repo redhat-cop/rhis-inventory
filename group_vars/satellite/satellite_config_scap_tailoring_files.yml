@@ -1,16 +1,16 @@
 ---
 satellite_scap_tailoring_files:
-  - name: "RHEL 8 DS 2022 Tailoring v3.0"
-    scap_file: "ssg-rhel8-ds-tailoring.xml"
+  - name: RHEL 8 DS 2022 Tailoring v3.0
+    scap_file: ssg-rhel8-ds-tailoring.xml
     locations:
-      - "Intranet"
-      - "DMZ"
+      - Intranet
+      - DMZ
     organizations:
       - "{{ satellite_organization }}"
-  - name: "RHEL 9 DS 2022 Tailoring v3.0"
-    scap_file: "ssg-rhel9-ds-tailoring.xml"
+  - name: RHEL 9 DS 2022 Tailoring v3.0
+    scap_file: ssg-rhel9-ds-tailoring.xml
     locations:
-      - "Intranet"
-      - "DMZ"
+      - Intranet
+      - DMZ
     organizations:
       - "{{ satellite_organization }}"

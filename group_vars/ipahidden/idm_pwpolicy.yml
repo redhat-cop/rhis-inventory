@@ -1,7 +1,7 @@
 ---
 idm_password_policy:
-  - name: "global_policy"
-    state: "present"
+  - name: global_policy
+    state: present
     history: "3"
     maxlife: "90"
     minlife: "1"
@@ -16,8 +16,8 @@ idm_password_policy:
     usercheck: "true"
     gracelimit: "2"
 
-  - name: "bastion-group"
-    state: "present"
+  - name: bastion-group
+    state: present
     history: "12"
     maxlife: "30"
     minlife: "3"

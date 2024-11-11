@@ -1,11 +1,11 @@
 ---
 controller_inventories:
-  - name: "Project SCM Inventory"
-    description: "Inventory sourced from GitHub inventory project"
+  - name: Project SCM Inventory
+    description: Inventory sourced from GitHub inventory project
     organization: "{{ aap_config_organization }}"
-  - name: "Satellite Inventory"
-    description: "Inventory sourced from Red Hat Satellite 6"
+  - name: Satellite Inventory
+    description: Inventory sourced from Red Hat Satellite 6
     organization: "{{ aap_config_organization }}"
-  - name: "Insights Inventory"
-    description: "Inventory for Insights Remediations"
+  - name: Insights Inventory
+    description: Inventory for Insights Remediations
     organization: "{{ aap_config_organization }}"

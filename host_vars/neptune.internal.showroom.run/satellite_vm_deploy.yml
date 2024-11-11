@@ -1,11 +1,11 @@
 ---
 satellite_host_deploy: true
-satellite_host_deploy_hostgroup: "hg_work_prod/hg_intranet/hg_rhel8.9"
+satellite_host_deploy_hostgroup: hg_work_prod/hg_intranet/hg_rhel8.9
 satellite_host_deploy_compute_attributes:
-  vm_size: "Standard_B1ms"
-  tags: "sequencestart=1,sequencestop=5"
+  vm_size: Standard_B1ms
+  tags: sequencestart=1,sequencestop=5
 satellite_host_deploy_organization: "{{ hostvars[groups['satellite'][0]]['satellite_organization'] }}"
-satellite_host_deploy_location: "Intranet"
-satellite_host_deploy_compute_resource: "Azure_Workload"
-satellite_host_deploy_image: "image-rhel-89"
-satellite_host_compute_profile: "Azure-Intranet-Workload-Default-VM"
+satellite_host_deploy_location: Intranet
+satellite_host_deploy_compute_resource: Azure_Workload
+satellite_host_deploy_image: image-rhel-89
+satellite_host_compute_profile: Azure-Intranet-Workload-Default-VM

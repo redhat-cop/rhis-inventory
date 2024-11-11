@@ -1,4 +1,4 @@
 ---
 azure_vm_deploy: true
 manage_public_ip: false
-azure_nic_name: "nic-{{ infrastructure_type }}-{{ network_zone }}-{{ deployment_environment }}-{{ inventory_hostname }}"
+azure_nic_name: nic-{{ infrastructure_type }}-{{ network_zone }}-{{ deployment_environment }}-{{ inventory_hostname }}

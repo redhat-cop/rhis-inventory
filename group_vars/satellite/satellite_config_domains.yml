@@ -3,7 +3,7 @@ satellite_domains:
   - name: "{{ azure_dns_private_dns_zone }}"
     description: "{{ azure_dns_private_dns_zone }} - root domain for the installation"
     locations:
-      - "Intranet"
-      - "DMZ"
+      - Intranet
+      - DMZ
     organizations:
       - "{{ satellite_organization }}"
