@@ -1,6 +1,6 @@
 ---
 name: AAP Jobs CI/CD
-run-name: AAP action Configure Controller
+run-name: AAP action Configure RH IdM
 on:
   push:
     branches: ["main"]
@@ -31,7 +31,7 @@ jobs:
             tasks:
               - name: Set variables from GitHub actions
                 ansible.builtin.set_fact:
-                  job_template_var: "RH AAP - Configure AAP"
+                  job_template_var: "RH IDM - Configure IdM"
                   controller_host: "https://${{ secrets.CONTROLLER_HOST }}"
                   controller_username: "${{ secrets.CONTROLLER_USERNAME }}"
                   controller_password: "${{ secrets.CONTROLLER_PASSWORD }}"
