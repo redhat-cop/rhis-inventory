@@ -225,7 +225,7 @@ controller_workflows:
           min: 0
           max: 250
         - question_name: "To which lifecycle environment would you like to promote the CCV"
-          question_description: "Refer to https://{{ groups.satellite | first }}/lifecycle_environments"
+          question_description: "Refer to https://{{ groups.satellite | first }}/lifecycle_environments" # noqa jinja[spacing]
           required: true
           type: multiplechoice
           variable: "lifecycle_environment"
@@ -368,7 +368,7 @@ controller_workflows:
           min: 0
           max: 250
         - question_name: "To which lifecycle environment would you like to promote the CCV"
-          question_description: "Refer to https://{{ groups.satellite | first }}/lifecycle_environments"
+          question_description: "Refer to https://{{ groups.satellite | first }}/lifecycle_environments" # noqa jinja[spacing]
           required: true
           type: multiplechoice
           variable: "lifecycle_environment"

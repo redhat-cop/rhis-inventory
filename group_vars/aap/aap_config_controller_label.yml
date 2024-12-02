@@ -52,3 +52,5 @@ controller_labels:
     organization: "{{ aap_config_organization }}"
   - name: leapp
     organization: "{{ aap_config_organization }}"
+  - name: idm configure
+    organization: "{{ aap_config_organization }}"
