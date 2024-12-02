@@ -10,7 +10,7 @@ on:
 jobs:
   automation_controller_job:
     name: Kick off Automation controller job
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     steps:
       - name: Prepare for collections and ansible
         run: |
