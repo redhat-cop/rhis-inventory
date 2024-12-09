@@ -1,9 +1,9 @@
 ---
 idm_sudo_commands:
-  - name: "/opt/actions-runner/bin/Runner.Listener"
-    description: "Command to configure on Github Runner"
+  - name: /opt/actions-runner/bin/Runner.Listener
+    description: Command to configure on Github Runner
     state: present
 
-  - name: "/usr/sbin/squid"
-    description: "squid"
+  - name: /usr/sbin/squid
+    description: squid
     state: present

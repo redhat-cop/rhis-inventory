@@ -1,18 +1,18 @@
 ---
 satellite_scap_contents:
-  - title: "RHEL 8 SCAP content"
+  - title: RHEL 8 SCAP content
     state: present
-    scap_file: "ssg-rhel8-ds.xml"
+    scap_file: ssg-rhel8-ds.xml
     locations:
-      - "Intranet"
-      - "DMZ"
+      - Intranet
+      - DMZ
     organizations:
       - "{{ satellite_organization }}"
-  - title: "RHEL 9 SCAP content"
+  - title: RHEL 9 SCAP content
     state: present
-    scap_file: "ssg-rhel9-ds.xml"
+    scap_file: ssg-rhel9-ds.xml
     locations:
-      - "Intranet"
-      - "DMZ"
+      - Intranet
+      - DMZ
     organizations:
       - "{{ satellite_organization }}"

@@ -1,11 +1,11 @@
 ---
 satellite_config_discovery_rules:
-  - name: "dr_intranet_vms"
+  - name: dr_intranet_vms
     enabled: false
     state: present
     organizations: "{{ satellite_organization }}"
     locations:
-      - "Intranet"
-    search: "subnet = 10.1.1.0"
+      - Intranet
+    search: subnet = 10.1.1.0
     priority: 20
-    hostgroup: "hg_mgmt_dev/hg_intranet"
+    hostgroup: hg_mgmt_dev/hg_intranet
