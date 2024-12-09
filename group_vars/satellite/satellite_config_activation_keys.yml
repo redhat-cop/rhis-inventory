@@ -1,95 +1,95 @@
 ---
 satellite_activation_keys:
-  - name: "ak_dev_rhel8_default_vm"
-    description: "Activation Key for Dev RHEL 8 systems"
-    content_view: "ccv_rhel8_vm"
-    lifecycle_environment: "Dev"
+  - name: ak_dev_rhel8_default_vm
+    description: Activation Key for Dev RHEL 8 systems
+    content_view: ccv_rhel8_vm
+    lifecycle_environment: Dev
     organization: "{{ satellite_organization }}"
-    service_level: "Self-Support"
+    service_level: Self-Support
     auto_attach: false
     release_version: "8"
     content_overrides:
       - label: satellite-client-6-for-rhel-8-x86_64-rpms
         override: enabled
     unlimited_hosts: true
-    state: "present"
+    state: present
 
-  - name: "ak_dev_rhel9_default_vm"
-    description: "Activation Key for Dev RHEL 9 systems"
-    content_view: "ccv_rhel9_vm"
-    lifecycle_environment: "Dev"
+  - name: ak_dev_rhel9_default_vm
+    description: Activation Key for Dev RHEL 9 systems
+    content_view: ccv_rhel9_vm
+    lifecycle_environment: Dev
     organization: "{{ satellite_organization }}"
-    service_level: "Self-Support"
+    service_level: Self-Support
     auto_attach: false
     release_version: "9"
     content_overrides:
       - label: satellite-client-6-for-rhel-9-x86_64-rpms
         override: enabled
     unlimited_hosts: true
-    state: "present"
+    state: present
 
-  - name: "ak_qa_rhel8_default_vm"
-    description: "Activation Key for QA RHEL 8 systems"
-    content_view: "ccv_rhel8_vm"
-    lifecycle_environment: "QA"
+  - name: ak_qa_rhel8_default_vm
+    description: Activation Key for QA RHEL 8 systems
+    content_view: ccv_rhel8_vm
+    lifecycle_environment: QA
     organization: "{{ satellite_organization }}"
-    service_level: "Self-Support"
+    service_level: Self-Support
     auto_attach: false
     release_version: "8"
     content_overrides:
       - label: satellite-client-6-for-rhel-8-x86_64-rpms
         override: enabled
     unlimited_hosts: true
-    state: "present"
+    state: present
 
-  - name: "ak_qa_rhel9_default_vm"
-    description: "Activation Key for QA RHEL 9 systems"
-    content_view: "ccv_rhel9_vm"
-    lifecycle_environment: "QA"
+  - name: ak_qa_rhel9_default_vm
+    description: Activation Key for QA RHEL 9 systems
+    content_view: ccv_rhel9_vm
+    lifecycle_environment: QA
     organization: "{{ satellite_organization }}"
-    service_level: "Self-Support"
+    service_level: Self-Support
     auto_attach: false
     release_version: "9"
     content_overrides:
       - label: satellite-client-6-for-rhel-9-x86_64-rpms
         override: enabled
     unlimited_hosts: true
-    state: "present"
+    state: present
 
-  - name: "ak_prod_rhel8_default_vm"
-    description: "Activation Key for Prod RHEL 8 systems"
-    content_view: "ccv_rhel8_vm"
-    lifecycle_environment: "Prod"
+  - name: ak_prod_rhel8_default_vm
+    description: Activation Key for Prod RHEL 8 systems
+    content_view: ccv_rhel8_vm
+    lifecycle_environment: Prod
     organization: "{{ satellite_organization }}"
-    service_level: "Self-Support"
+    service_level: Self-Support
     auto_attach: false
     release_version: "8"
     content_overrides:
       - label: satellite-client-6-for-rhel-8-x86_64-rpms
         override: enabled
     unlimited_hosts: true
-    state: "present"
+    state: present
 
-  - name: "ak_prod_rhel9_default_vm"
-    description: "Activation Key for Prod RHEL 9 systems"
-    content_view: "ccv_rhel9_vm"
-    lifecycle_environment: "Prod"
+  - name: ak_prod_rhel9_default_vm
+    description: Activation Key for Prod RHEL 9 systems
+    content_view: ccv_rhel9_vm
+    lifecycle_environment: Prod
     organization: "{{ satellite_organization }}"
-    service_level: "Self-Support"
+    service_level: Self-Support
     auto_attach: false
     release_version: "9"
     content_overrides:
       - label: satellite-client-6-for-rhel-9-x86_64-rpms
         override: enabled
     unlimited_hosts: true
-    state: "present"
+    state: present
 
-  - name: "ak_dev_rhel9_aap"
-    description: "Activation Key for Ansible Automation Platform"
-    content_view: "ccv_aap"
-    lifecycle_environment: "Dev"
+  - name: ak_dev_rhel9_aap
+    description: Activation Key for Ansible Automation Platform
+    content_view: ccv_aap
+    lifecycle_environment: Dev
     organization: "{{ satellite_organization }}"
-    service_level: "Self-Support"
+    service_level: Self-Support
     auto_attach: false
     release_version: "9"
     # When installing ipaclient packages, dependencies are installed from aap repo and there are version mismatches!!
@@ -97,39 +97,39 @@ satellite_activation_keys:
     #   - label: ansible-automation-platform-2.4-for-rhel-9-x86_64-rpms
     #     override: enabled
     unlimited_hosts: true
-    state: "present"
+    state: present
 
-  - name: "ak_dev_epel"
-    description: "Activation Key for Dev EPEL systems"
-    content_view: "ccv_epel"
-    lifecycle_environment: "Dev"
+  - name: ak_dev_epel
+    description: Activation Key for Dev EPEL systems
+    content_view: ccv_epel
+    lifecycle_environment: Dev
     organization: "{{ satellite_organization }}"
-    service_level: "Self-Support"
+    service_level: Self-Support
     auto_attach: false
     release_version: "8"
     unlimited_hosts: true
-    state: "present"
+    state: present
 
-  - name: "ak_dev_rhel8_capsule"
-    description: "Activation Key for Dev RHEL 8 Capsule"
-    content_view: "ccv_rhel8_capsule"
-    lifecycle_environment: "Dev"
+  - name: ak_dev_rhel8_capsule
+    description: Activation Key for Dev RHEL 8 Capsule
+    content_view: ccv_rhel8_capsule
+    lifecycle_environment: Dev
     organization: "{{ satellite_organization }}"
-    service_level: "Self-Support"
+    service_level: Self-Support
     auto_attach: false
     release_version: "8"
     content_overrides:
       - label: satellite-client-6-for-rhel-8-x86_64-rpms
         override: enabled
     unlimited_hosts: true
-    state: "present"
+    state: present
 
-  - name: "ak_dev_leapp_rhel8_10_to_rhel9_4"
-    description: "Activation Key for RHEL8 to RHEL9 Leapp Upgrades"
-    content_view: "cv_leapp_rhel8_10_to_rhel9_4"
-    lifecycle_environment: "Dev"
+  - name: ak_dev_leapp_rhel8_10_to_rhel9_4
+    description: Activation Key for RHEL8 to RHEL9 Leapp Upgrades
+    content_view: cv_leapp_rhel8_10_to_rhel9_4
+    lifecycle_environment: Dev
     organization: "{{ satellite_organization }}"
-    service_level: "Self-Support"
+    service_level: Self-Support
     auto_attach: false
     unlimited_hosts: true
-    state: "present"
+    state: present

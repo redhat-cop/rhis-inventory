@@ -1,14 +1,14 @@
 ---
 controller_schedules:
-  - name: "RH Satellite - Prune (C)CVs versions Schedule"
-    description: "Schedule for RH Satellite unused (C)CV versions clean"
-    rrule: "DTSTART;TZID=Europe/Berlin:20220908T090000 RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=TH"
-    unified_job_template: "RH Satellite - Prune (C)CVs versions"
+  - name: RH Satellite - Prune (C)CVs versions Schedule
+    description: Schedule for RH Satellite unused (C)CV versions clean
+    rrule: DTSTART;TZID=Europe/Berlin:20220908T090000 RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=TH
+    unified_job_template: RH Satellite - Prune (C)CVs versions
     enabled: true
-  - name: "RH Satellite - Publish CV for CCVs"
-    description: "Schedule for RH Satellite CVs publish for every CCV"
-    rrule: "DTSTART;TZID=Europe/Berlin:20220908T090000 RRULE:INTERVAL=1;FREQ=DAILY;BYDAY=TH"
-    unified_job_template: "RH Satellite - Publish CVs"
+  - name: RH Satellite - Publish CV for CCVs
+    description: Schedule for RH Satellite CVs publish for every CCV
+    rrule: DTSTART;TZID=Europe/Berlin:20220908T090000 RRULE:INTERVAL=1;FREQ=DAILY;BYDAY=TH
+    unified_job_template: RH Satellite - Publish CVs
     enabled: true
     extra_data:
       satellite_config_ccvs:

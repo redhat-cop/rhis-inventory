@@ -12,8 +12,8 @@ ipaserver_realm: "{{ idm_default_dns_zone | upper }}"
 ipaserver_allow_zone_overlap: true
 ipaserver_forwarders:
   - "{{ azure_dns_ip }}" # Azure IP
-ipaserver_forward_policy: "first"
+ipaserver_forward_policy: first
 ipaserver_auto_reverse: true
 ipaserver_no_host_dns: true
 
-ipaserver_chain_cert_path: "/root/chain.crt"
+ipaserver_chain_cert_path: /root/chain.crt

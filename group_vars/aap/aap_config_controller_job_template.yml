@@ -1,10 +1,10 @@
 ---
 controller_templates:
-  - name: "Demo Job Template"
+  - name: Demo Job Template
     state: absent
 
-  - name: "RH AAP - Configure AAP"
-    description: "Job Template for AAP Controller Configuration"
+  - name: RH AAP - Configure AAP
+    description: Job Template for AAP Controller Configuration
     playbook: playbooks/function_aap_configure.yml
     label:
       - aap configure
@@ -14,17 +14,17 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
-      - "New Vault Credential"
+      - Machine Credential
+      - Vault Credential
+      - New Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
     extra_vars:
       host: aap_controller
 
-  - name: "RH IdM - Register Host"
-    description: "Job Template used for registering hosts to the RH IdM"
+  - name: RH IdM - Register Host
+    description: Job Template used for registering hosts to the RH IdM
     playbook: playbooks/function_idm_register.yml
     labels:
       - register host
@@ -37,19 +37,19 @@ controller_templates:
     allow_simultaneous: true
     survey_enabled: true
     survey_spec:
-      name: "Survey for hostname"
-      description: "Define hostname or group name Survey"
+      name: Survey for hostname
+      description: Define hostname or group name Survey
       spec:
-        - question_name: "Hostname or Group?"
-          question_description: "Please provide fully qualified hostname or group name"
+        - question_name: Hostname or Group?
+          question_description: Please provide fully qualified hostname or group name
           required: true
           type: text
-          variable: "host"
+          variable: host
           min: 0
           max: 250
 
-  - name: "RHEL VM Deploy - via Azure APIs"
-    description: "Job Template for a new RHEL VM Deployment via Azure APIs"
+  - name: RHEL VM Deploy - via Azure APIs
+    description: Job Template for a new RHEL VM Deployment via Azure APIs
     playbook: playbooks/function_azure_vm_create.yml
     labels:
       - vm deploy - azure
@@ -62,19 +62,19 @@ controller_templates:
     allow_simultaneous: true
     survey_enabled: true
     survey_spec:
-      name: "Survey for hostname"
-      description: "Define hostname or group name Survey"
+      name: Survey for hostname
+      description: Define hostname or group name Survey
       spec:
-        - question_name: "Hostname or Group?"
-          question_description: "Please provide fully qualified hostname or group name"
+        - question_name: Hostname or Group?
+          question_description: Please provide fully qualified hostname or group name
           required: true
           type: text
-          variable: "host"
+          variable: host
           min: 0
           max: 250
 
-  - name: "RHEL VM Deploy - via Satellite"
-    description: "Job Template for a new RHEL VM Deployment via Satellite"
+  - name: RHEL VM Deploy - via Satellite
+    description: Job Template for a new RHEL VM Deployment via Satellite
     playbook: playbooks/type_workload_vm_create.yml
     labels:
       - vm deploy - satellite
@@ -87,19 +87,19 @@ controller_templates:
     allow_simultaneous: true
     survey_enabled: true
     survey_spec:
-      name: "Survey for hostname"
-      description: "Define hostname or group name Survey"
+      name: Survey for hostname
+      description: Define hostname or group name Survey
       spec:
-        - question_name: "Hostname or Group?"
-          question_description: "Please provide fully qualified hostname or group name"
+        - question_name: Hostname or Group?
+          question_description: Please provide fully qualified hostname or group name
           required: true
           type: text
-          variable: "host"
+          variable: host
           min: 0
           max: 250
 
-  - name: "RHEL VM Decommission - via Satellite"
-    description: "Job Template for a decommissioning RHEL VM via Satellite"
+  - name: RHEL VM Decommission - via Satellite
+    description: Job Template for a decommissioning RHEL VM via Satellite
     playbook: playbooks/function_satellite_vm_deploy.yml
     labels:
       - vm decommission - satellite
@@ -112,21 +112,21 @@ controller_templates:
     allow_simultaneous: true
     survey_enabled: true
     survey_spec:
-      name: "Survey for hostname"
-      description: "Define hostname or group name Survey"
+      name: Survey for hostname
+      description: Define hostname or group name Survey
       spec:
-        - question_name: "Hostname or Group?"
-          question_description: "Please provide fully qualified hostname or group name"
+        - question_name: Hostname or Group?
+          question_description: Please provide fully qualified hostname or group name
           required: true
           type: text
-          variable: "host"
+          variable: host
           min: 0
           max: 250
     extra_vars:
-      satellite_host_deploy_state: "absent"
+      satellite_host_deploy_state: absent
 
-  - name: "RHEL VM  Update - Deploy Live Kernel Patch"
-    description: "Job Template to enable, install and update live kernel for RHEL systems"
+  - name: RHEL VM  Update - Deploy Live Kernel Patch
+    description: Job Template to enable, install and update live kernel for RHEL systems
     playbook: playbooks/function_enable_live_kernel.yml
     labels:
       - kernel patch
@@ -136,26 +136,26 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
+      - Machine Credential
+      - Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: true
     survey_enabled: true
     survey_spec:
-      name: "Survey for hostname"
-      description: "Define hostname or group name Survey"
+      name: Survey for hostname
+      description: Define hostname or group name Survey
       spec:
-        - question_name: "Hostname or Group?"
-          question_description: "Please provide fully qualified hostname or group name"
+        - question_name: Hostname or Group?
+          question_description: Please provide fully qualified hostname or group name
           required: true
           type: text
-          variable: "host"
+          variable: host
           min: 0
           max: 250
 
-  - name: "RHEL VM Update - Leapp Analysis"
-    description: "Job Template to leapp upgrade analysis"
+  - name: RHEL VM Update - Leapp Analysis
+    description: Job Template to leapp upgrade analysis
     playbook: playbooks/function_leapp_analysis.yml
     labels:
       - leapp
@@ -165,15 +165,15 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
+      - Machine Credential
+      - Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
     skip_tags: leapp_analysis
 
-  - name: "RHEL VM Update - Leapp Upgrade"
-    description: "Job Template to leapp upgrade"
+  - name: RHEL VM Update - Leapp Upgrade
+    description: Job Template to leapp upgrade
     playbook: playbooks/function_leapp_upgrade.yml
     labels:
       - leapp
@@ -183,15 +183,15 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
+      - Machine Credential
+      - Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
     skip_tags: leapp_upgrade
 
-  - name: "RHEL VM Update - Leapp 8.10 to 9.4 Remediate"
-    description: "Job Template to leapp remediate"
+  - name: RHEL VM Update - Leapp 8.10 to 9.4 Remediate
+    description: Job Template to leapp remediate
     playbook: playbooks/function_leapp_remediate.yml
     labels:
       - leapp
@@ -201,33 +201,36 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
+      - Machine Credential
+      - Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
     skip_tags: leapp_remediate
     survey_enabled: true
     survey_spec:
-      name: "Survey for remediation"
-      description: "Define remediation points"
+      name: Survey for remediation
+      description: Define remediation points
       spec:
-        - question_name: "What do you want to remediate?"
-          question_description: "Inhibitors to remediate, refer to https://{{ groups.aap_pah | first }}/ui/repo/validated/infra/leapp/content/role/remediate/"
+        - question_name: What do you want to remediate?
+          question_description: Inhibitors to remediate, refer to https://{{ groups.aap_pah | first }}/ui/repo/validated/infra/leapp/content/role/remediate/
           required: true
           type: multiselect
-          variable: "remediation_todo"
-          choices: "leapp_cifs_detected\nleapp_corrupted_grubenv_file\nleapp_custom_network_scripts_detected\nleapp_deprecated_sshd_directive\nleapp_firewalld_allowzonedrifting\nleapp_firewalld_unsupported_tftp_client\nleapp_loaded_removed_kernel_drivers\nleapp_missing_efibootmgr\nleapp_missing_pkg\nleapp_missing_yum_plugins\nleapp_multiple_kernels\nleapp_newest_kernel_not_in_use\nleapp_nfs_detected\nleapp_non_persistent_partitions\nleapp_non_standard_openssl_config\nleapp_old_postgresql_data\nleapp_partitions_with_noexec\nleapp_relative_symlinks\nleapp_rpms_with_rsa_sha1_detected\nleapp_unavailable_kde\nleapp_vdo_check_needed\n"
-        - question_name: "Hostname or Group?"
-          question_description: "Please provide fully qualified hostname or group name"
+          variable: remediation_todo
+          choices: "leapp_cifs_detected\nleapp_corrupted_grubenv_file\nleapp_custom_network_scripts_detected\nleapp_deprecated_sshd_directive\nleapp_firewalld_allowzonedrifting\n\
+            leapp_firewalld_unsupported_tftp_client\nleapp_loaded_removed_kernel_drivers\nleapp_missing_efibootmgr\nleapp_missing_pkg\nleapp_missing_yum_plugins\n\
+            leapp_multiple_kernels\nleapp_newest_kernel_not_in_use\nleapp_nfs_detected\nleapp_non_persistent_partitions\nleapp_non_standard_openssl_config\nleapp_old_postgresql_data\n\
+            leapp_partitions_with_noexec\nleapp_relative_symlinks\nleapp_rpms_with_rsa_sha1_detected\nleapp_unavailable_kde\nleapp_vdo_check_needed\n"
+        - question_name: Hostname or Group?
+          question_description: Please provide fully qualified hostname or group name
           required: true
           type: text
-          variable: "host"
+          variable: host
           min: 0
           max: 250
 
-  - name: "RHEL VM Update - HTTP Test"
-    description: "Job Template to test httpd"
+  - name: RHEL VM Update - HTTP Test
+    description: Job Template to test httpd
     playbook: playbooks/function_leapp_test.yml
     labels:
       - leapp
@@ -237,15 +240,15 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
+      - Machine Credential
+      - Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
     skip_tags: leapp_test
 
-  - name: "RHEL VM Update - Packages"
-    description: "Update all packages on RHEL VM"
+  - name: RHEL VM Update - Packages
+    description: Update all packages on RHEL VM
     playbook: playbooks/toolbox_vm_update.yml
     labels:
       - vm update packages
@@ -258,19 +261,19 @@ controller_templates:
     allow_simultaneous: true
     survey_enabled: true
     survey_spec:
-      name: "Survey for hostname"
-      description: "Define hostname or group name Survey"
+      name: Survey for hostname
+      description: Define hostname or group name Survey
       spec:
-        - question_name: "Hostname or Group?"
-          question_description: "Please provide fully qualified hostname or group name"
+        - question_name: Hostname or Group?
+          question_description: Please provide fully qualified hostname or group name
           required: true
           type: text
-          variable: "host"
+          variable: host
           min: 0
           max: 250
 
-  - name: "Azure - Snapshot Create"
-    description: "Job Template to create snapshot for leapp upgrade"
+  - name: Azure - Snapshot Create
+    description: Job Template to create snapshot for leapp upgrade
     playbook: playbooks/function_azure_snapshot_manage.yml
     labels:
       - leapp
@@ -280,18 +283,18 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
+      - Machine Credential
+      - Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
     skip_tags: azure_snapshot_create
     extra_vars:
       azure_snapshot: "true"
-      azure_snapshot_state: "present"
+      azure_snapshot_state: present
 
-  - name: "Azure - Snapshot Delete"
-    description: "Job Template to delete snapshot for leapp upgrade"
+  - name: Azure - Snapshot Delete
+    description: Job Template to delete snapshot for leapp upgrade
     playbook: playbooks/function_azure_snapshot_manage.yml
     labels:
       - leapp
@@ -301,18 +304,18 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
+      - Machine Credential
+      - Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
     skip_tags: azure_snapshot_delete
     extra_vars:
       azure_snapshot: "true"
-      azure_snapshot_state: "absent"
+      azure_snapshot_state: absent
 
-  - name: "RH Satellite - Register Host"
-    description: "Job Template used for registering hosts to the RH Satellite"
+  - name: RH Satellite - Register Host
+    description: Job Template used for registering hosts to the RH Satellite
     playbook: playbooks/function_satellite_register.yml
     labels:
       - register host
@@ -325,19 +328,19 @@ controller_templates:
     allow_simultaneous: true
     survey_enabled: true
     survey_spec:
-      name: "Survey for hostname"
-      description: "Define hostname or group name Survey"
+      name: Survey for hostname
+      description: Define hostname or group name Survey
       spec:
-        - question_name: "Hostname or Group?"
-          question_description: "Please provide fully qualified hostname or group name"
+        - question_name: Hostname or Group?
+          question_description: Please provide fully qualified hostname or group name
           required: true
           type: text
-          variable: "host"
+          variable: host
           min: 0
           max: 250
 
-  - name: "RH Satellite - Prune (C)CVs versions"
-    description: "Job Template to clean out (C)CV versions from Satellite"
+  - name: RH Satellite - Prune (C)CVs versions
+    description: Job Template to clean out (C)CV versions from Satellite
     playbook: playbooks/function_clean_cv_version.yml
     labels:
       - clean ccv
@@ -353,8 +356,8 @@ controller_templates:
     extra_vars:
       host: satellite
 
-  - name: "RH Satellite - Configure Satellite"
-    description: "Job Template to configure RH Satellite"
+  - name: RH Satellite - Configure Satellite
+    description: Job Template to configure RH Satellite
     playbook: playbooks/function_satellite_configure.yml
     labels:
       - satellite configure
@@ -364,8 +367,8 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
+      - Machine Credential
+      - Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
@@ -373,8 +376,8 @@ controller_templates:
     extra_vars:
       host: satellite
 
-  - name: "RH IDM - Configure IdM"
-    description: "Job Template to configure RH IdM"
+  - name: RH IDM - Configure IdM
+    description: Job Template to configure RH IdM
     playbook: playbooks/function_idm_configuration.yml
     labels:
       - idm configure
@@ -384,16 +387,16 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
+      - Machine Credential
+      - Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
     extra_vars:
       host: ipahidden
 
-  - name: "RH Satellite - Change Host Group"
-    description: "Job Template to move vm to different host group"
+  - name: RH Satellite - Change Host Group
+    description: Job Template to move vm to different host group
     playbook: playbooks/toolbox_satellite_hostgroup_change.yml
     labels:
       - leapp
@@ -403,15 +406,15 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
+      - Machine Credential
+      - Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
     skip_tags: leapp_change_hostgroup
 
-  - name: "RH Satellite - Promote CCV"
-    description: "Promote CCV to the respective lifecycle environment"
+  - name: RH Satellite - Promote CCV
+    description: Promote CCV to the respective lifecycle environment
     playbook: playbooks/function_satellite_promote_ccv.yml
     labels:
       - promote ccv
@@ -424,26 +427,26 @@ controller_templates:
     allow_simultaneous: false
     survey_enabled: true
     survey_spec:
-      name: "Survey for Promote CCV"
-      description: "Define CCV"
+      name: Survey for Promote CCV
+      description: Define CCV
       spec:
-        - question_name: "Which CCV you would you like to promote?"
-          question_description: "Refer to https://{{ groups.satellite | first }}/content_views"
+        - question_name: Which CCV you would you like to promote?
+          question_description: Refer to https://{{ groups.satellite | first }}/content_views
           required: true
           type: multiplechoice
-          variable: "satellite_config_ccv_name"
+          variable: satellite_config_ccv_name
           choices: "ccv_aap\nccv_epel\nccv_rhel8_capsule\nccv_rhel8_vm\nccv_rhel9_vm"
-        - question_name: "To which lifecycle environment would you like to promote the CCV"
-          question_description: "Refer to https://{{ groups.satellite | first }}/lifecycle_environments"
+        - question_name: To which lifecycle environment would you like to promote the CCV
+          question_description: Refer to https://{{ groups.satellite | first }}/lifecycle_environments
           required: true
           type: multiplechoice
-          variable: "lifecycle_environment"
+          variable: lifecycle_environment
           choices: "QA\nProd"
     extra_vars:
       host: satellite
 
-  - name: "RH Satellite - Publish CVs"
-    description: "Publish CVs of the given CCVs and Promote CCVs to lifecycle environment Dev"
+  - name: RH Satellite - Publish CVs
+    description: Publish CVs of the given CCVs and Promote CCVs to lifecycle environment Dev
     playbook: playbooks/function_satellite_publish_cvs.yml
     labels:
       - publish cv
@@ -456,20 +459,20 @@ controller_templates:
     allow_simultaneous: false
     survey_enabled: true
     survey_spec:
-      name: "Survey for Publish CVs"
-      description: "Define CCVs for CVs"
+      name: Survey for Publish CVs
+      description: Define CCVs for CVs
       spec:
-        - question_name: "Which CVs within the specified CCV are intended to be published and promoted to the lifecycle environment Dev?"
-          question_description: "Refer to https://{{ groups.satellite | first }}/content_views"
+        - question_name: Which CVs within the specified CCV are intended to be published and promoted to the lifecycle environment Dev?
+          question_description: Refer to https://{{ groups.satellite | first }}/content_views
           required: true
           type: multiselect
-          variable: "satellite_config_ccvs"
+          variable: satellite_config_ccvs
           choices: "ccv_aap\nccv_epel\nccv_rhel8_capsule\nccv_rhel8_vm\nccv_rhel9_vm"
     extra_vars:
       host: satellite
 
-  - name: "Bastion - Renew SSL Certs"
-    description: "Job Template to renew SSL Certs for reverse proxy service."
+  - name: Bastion - Renew SSL Certs
+    description: Job Template to renew SSL Certs for reverse proxy service.
     playbook: playbooks/function_reverse_proxy_configure.yml
     label:
       - operations
@@ -479,9 +482,9 @@ controller_templates:
     project: "{{ aap_config_default_project }}"
     execution_environment: "{{ aap_config_default_execution_environment }}"
     credentials:
-      - "Machine Credential"
-      - "Vault Credential"
-      - "New Vault Credential"
+      - Machine Credential
+      - Vault Credential
+      - New Vault Credential
     notification_templates_success: "{{ aap_config_default_notification_template }}"
     notification_templates_error: "{{ aap_config_default_notification_template }}"
     allow_simultaneous: false
