@@ -5,4 +5,4 @@ controller_license:
   use_lookup: true
   filters:
     product_name: "Red Hat Ansible Automation Platform"
-    support_level: "Self-Support"
+    support_level: "Standard"
