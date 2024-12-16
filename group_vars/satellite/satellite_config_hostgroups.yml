@@ -1,385 +1,385 @@
 ---
 satellite_hostgroups:
   # Management - Dev
-  - name: "hg_mgmt_dev"
+  - name: hg_mgmt_dev
     state: present
     description: >
       The parent hostgroup for all hosts belonging to the Dev
       environment
     organization: "{{ satellite_organization }}"
-    lifecycle_environment: "Dev"
+    lifecycle_environment: Dev
     domain: "{{ azure_dns_private_dns_zone }}"
     realm: "{{ azure_dns_private_dns_zone | upper }}"
-    compute_resource: "Azure_Management"
+    compute_resource: Azure_Management
 
-  - name: "hg_intranet"
-    description: "Parent hostgroup for Management Intranet"
-    parent: "hg_mgmt_dev"
+  - name: hg_intranet
+    description: Parent hostgroup for Management Intranet
+    parent: hg_mgmt_dev
     organization: "{{ satellite_organization }}"
     content_source: "{{ groups.satellite | first }}"
     openscap_proxy: "{{ groups.satellite | first }}"
     locations:
-      - "Intranet"
+      - Intranet
 
-  - name: "hg_rhel8.9"
-    description: "Parent hostgroup for rhel8.9 systems"
-    parent: "hg_mgmt_dev/hg_intranet"
+  - name: hg_rhel8.9
+    description: Parent hostgroup for rhel8.9 systems
+    parent: hg_mgmt_dev/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel8_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 8.9"
+    architecture: x86_64
+    operatingsystem: RedHat 8.9
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel8-cis
-    compute_profile: "Azure-Intranet-Management-Default-VM"
+    compute_profile: Azure-Intranet-Management-Default-VM
     activation_keys: ak_dev_rhel8_default_vm
 
-  - name: "hg_rhel8.10"
-    description: "Parent hostgroup for rhel8.10 systems"
-    parent: "hg_mgmt_dev/hg_intranet"
+  - name: hg_rhel8.10
+    description: Parent hostgroup for rhel8.10 systems
+    parent: hg_mgmt_dev/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel8_vm
-    architecture: "x86_64"
-    operatingsystem: "RHEL 8.10"
+    architecture: x86_64
+    operatingsystem: RHEL 8.10
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel8-cis
-    compute_profile: "Azure-Intranet-Management-Default-VM"
+    compute_profile: Azure-Intranet-Management-Default-VM
     activation_keys: ak_dev_rhel8_default_vm
 
-  - name: "hg_rhel9.3"
-    description: "Parent hostgroup for rhel9.3 systems"
-    parent: "hg_mgmt_dev/hg_intranet"
+  - name: hg_rhel9.3
+    description: Parent hostgroup for rhel9.3 systems
+    parent: hg_mgmt_dev/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel9_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 9.3"
+    architecture: x86_64
+    operatingsystem: RedHat 9.3
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel9-cis
-    compute_profile: "Azure-Intranet-Management-Default-VM"
+    compute_profile: Azure-Intranet-Management-Default-VM
     activation_keys: ak_dev_rhel9_default_vm
 
-  - name: "hg_rhel9.4"
-    description: "Parent hostgroup for rhel9.4 systems"
-    parent: "hg_mgmt_dev/hg_intranet"
+  - name: hg_rhel9.4
+    description: Parent hostgroup for rhel9.4 systems
+    parent: hg_mgmt_dev/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel9_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 9.4"
+    architecture: x86_64
+    operatingsystem: RedHat 9.4
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel9-cis
-    compute_profile: "Azure-Intranet-Management-Default-VM"
+    compute_profile: Azure-Intranet-Management-Default-VM
     activation_keys: ak_dev_rhel9_default_vm
 
   # Workload - Dev
-  - name: "hg_work_dev"
+  - name: hg_work_dev
     state: present
     description: >
       The parent hostgroup for all hosts belonging to the Dev
       environment
     organization: "{{ satellite_organization }}"
-    lifecycle_environment: "Dev"
+    lifecycle_environment: Dev
     domain: "{{ azure_dns_private_dns_zone }}"
     realm: "{{ azure_dns_private_dns_zone | upper }}"
-    compute_resource: "Azure_Workload"
+    compute_resource: Azure_Workload
 
-  - name: "hg_intranet"
-    description: "Parent hostgroup for Workload Intranet"
-    parent: "hg_work_dev"
+  - name: hg_intranet
+    description: Parent hostgroup for Workload Intranet
+    parent: hg_work_dev
     organization: "{{ satellite_organization }}"
     content_source: "{{ groups.satellite | first }}"
     openscap_proxy: "{{ groups.satellite | first }}"
     locations:
-      - "Intranet"
+      - Intranet
 
-  - name: "hg_rhel8.9"
-    description: "Parent hostgroup for rhel8.9 systems"
-    parent: "hg_work_dev/hg_intranet"
+  - name: hg_rhel8.9
+    description: Parent hostgroup for rhel8.9 systems
+    parent: hg_work_dev/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel8_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 8.9"
+    architecture: x86_64
+    operatingsystem: RedHat 8.9
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel8-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_dev_rhel8_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
-  - name: "hg_rhel8.10"
-    description: "Parent hostgroup for rhel8.10 systems"
-    parent: "hg_work_dev/hg_intranet"
+  - name: hg_rhel8.10
+    description: Parent hostgroup for rhel8.10 systems
+    parent: hg_work_dev/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel8_vm
-    architecture: "x86_64"
-    operatingsystem: "RHEL 8.10"
+    architecture: x86_64
+    operatingsystem: RHEL 8.10
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel8-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_qa_rhel8_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
-  - name: "hg_rhel9.3"
-    description: "Parent hostgroup for rhel9.3 systems"
-    parent: "hg_work_dev/hg_intranet"
+  - name: hg_rhel9.3
+    description: Parent hostgroup for rhel9.3 systems
+    parent: hg_work_dev/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel9_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 9.3"
+    architecture: x86_64
+    operatingsystem: RedHat 9.3
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel9-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_dev_rhel9_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
-  - name: "hg_rhel9.4"
-    description: "Parent hostgroup for rhel9.4 systems"
-    parent: "hg_work_dev/hg_intranet"
+  - name: hg_rhel9.4
+    description: Parent hostgroup for rhel9.4 systems
+    parent: hg_work_dev/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel9_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 9.4"
+    architecture: x86_64
+    operatingsystem: RedHat 9.4
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel9-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_dev_rhel9_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
   # Workload - QA
-  - name: "hg_work_qa"
+  - name: hg_work_qa
     state: present
     description: >
       The parent hostgroup for all hosts belonging to the QA
       environment
     organization: "{{ satellite_organization }}"
-    lifecycle_environment: "QA"
+    lifecycle_environment: QA
     domain: "{{ azure_dns_private_dns_zone }}"
     realm: "{{ azure_dns_private_dns_zone | upper }}"
-    compute_resource: "Azure_Workload"
+    compute_resource: Azure_Workload
 
-  - name: "hg_intranet"
-    description: "Parent hostgroup for Workload Intranet"
-    parent: "hg_work_qa"
+  - name: hg_intranet
+    description: Parent hostgroup for Workload Intranet
+    parent: hg_work_qa
     organization: "{{ satellite_organization }}"
     content_source: "{{ groups.satellite | first }}"
     openscap_proxy: "{{ groups.satellite | first }}"
     locations:
-      - "Intranet"
+      - Intranet
 
-  - name: "hg_rhel8.9"
-    description: "Parent hostgroup for rhel8.9 systems"
-    parent: "hg_work_qa/hg_intranet"
+  - name: hg_rhel8.9
+    description: Parent hostgroup for rhel8.9 systems
+    parent: hg_work_qa/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel8_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 8.9"
+    architecture: x86_64
+    operatingsystem: RedHat 8.9
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel8-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_qa_rhel8_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
-  - name: "hg_rhel8.10"
-    description: "Parent hostgroup for rhel8.10 systems"
-    parent: "hg_work_qa/hg_intranet"
+  - name: hg_rhel8.10
+    description: Parent hostgroup for rhel8.10 systems
+    parent: hg_work_qa/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel8_vm
-    architecture: "x86_64"
-    operatingsystem: "RHEL 8.10"
+    architecture: x86_64
+    operatingsystem: RHEL 8.10
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel8-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_qa_rhel8_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
-  - name: "hg_rhel9.3"
-    description: "Parent hostgroup for rhel9.3 systems"
-    parent: "hg_work_qa/hg_intranet"
+  - name: hg_rhel9.3
+    description: Parent hostgroup for rhel9.3 systems
+    parent: hg_work_qa/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel9_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 9.3"
+    architecture: x86_64
+    operatingsystem: RedHat 9.3
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel9-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_qa_rhel9_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
-  - name: "hg_rhel9.4"
-    description: "Parent hostgroup for rhel9.4 systems"
-    parent: "hg_work_qa/hg_intranet"
+  - name: hg_rhel9.4
+    description: Parent hostgroup for rhel9.4 systems
+    parent: hg_work_qa/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel9_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 9.4"
+    architecture: x86_64
+    operatingsystem: RedHat 9.4
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel9-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_qa_rhel9_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
   # Workload - Prod
-  - name: "hg_work_prod"
+  - name: hg_work_prod
     state: present
     description: >
       The parent hostgroup for all hosts belonging to the Prod
       environment
     organization: "{{ satellite_organization }}"
-    lifecycle_environment: "Prod"
+    lifecycle_environment: Prod
     domain: "{{ azure_dns_private_dns_zone }}"
     realm: "{{ azure_dns_private_dns_zone | upper }}"
-    compute_resource: "Azure_Workload"
+    compute_resource: Azure_Workload
 
-  - name: "hg_intranet"
-    description: "Parent hostgroup for Workload Intranet"
-    parent: "hg_work_prod"
+  - name: hg_intranet
+    description: Parent hostgroup for Workload Intranet
+    parent: hg_work_prod
     organization: "{{ satellite_organization }}"
     content_source: "{{ groups.satellite | first }}"
     openscap_proxy: "{{ groups.satellite | first }}"
     locations:
-      - "Intranet"
+      - Intranet
 
-  - name: "hg_rhel8.9"
-    description: "Parent hostgroup for rhel8.9 systems"
-    parent: "hg_work_prod/hg_intranet"
+  - name: hg_rhel8.9
+    description: Parent hostgroup for rhel8.9 systems
+    parent: hg_work_prod/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel8_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 8.9"
+    architecture: x86_64
+    operatingsystem: RedHat 8.9
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel8-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_prod_rhel8_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
-  - name: "hg_rhel8.10"
-    description: "Parent hostgroup for rhel8.10 systems"
-    parent: "hg_work_prod/hg_intranet"
+  - name: hg_rhel8.10
+    description: Parent hostgroup for rhel8.10 systems
+    parent: hg_work_prod/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel8_vm
-    architecture: "x86_64"
-    operatingsystem: "RHEL 8.10"
+    architecture: x86_64
+    operatingsystem: RHEL 8.10
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel8-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_prod_rhel8_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
-  - name: "hg_rhel9.3"
-    description: "Parent hostgroup for rhel9.3 systems"
-    parent: "hg_work_prod/hg_intranet"
+  - name: hg_rhel9.3
+    description: Parent hostgroup for rhel9.3 systems
+    parent: hg_work_prod/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel9_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 9.3"
+    architecture: x86_64
+    operatingsystem: RedHat 9.3
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel9-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_prod_rhel9_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
-  - name: "hg_rhel9.4"
-    description: "Parent hostgroup for rhel9.4 systems"
-    parent: "hg_work_prod/hg_intranet"
+  - name: hg_rhel9.4
+    description: Parent hostgroup for rhel9.4 systems
+    parent: hg_work_prod/hg_intranet
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel9_vm
-    architecture: "x86_64"
-    operatingsystem: "RedHat 9.4"
+    architecture: x86_64
+    operatingsystem: RedHat 9.4
     ptable: pt_uefi_default
     ansible_roles:
       - theforeman.foreman_scap_client
       - ansible-role-rhel9-cis
-    compute_profile: "Azure-Intranet-Workload-Default-VM"
+    compute_profile: Azure-Intranet-Workload-Default-VM
     activation_keys: ak_prod_rhel9_default_vm
     parameters:
-      - name: "package_upgrade"
+      - name: package_upgrade
         value: "false"
-        parameter_type: "boolean"
+        parameter_type: boolean
 
   # Other
-  - name: "hg_aap"
-    description: "Parent hostgroup for AAP systems"
-    parent: "hg_mgmt_dev/hg_intranet/hg_rhel9.4"
+  - name: hg_aap
+    description: Parent hostgroup for AAP systems
+    parent: hg_mgmt_dev/hg_intranet/hg_rhel9.4
     organization: "{{ satellite_organization }}"
     content_view: ccv_aap
-    architecture: "x86_64"
-    compute_profile: "Azure-Intranet-Management-Default-VM"
+    architecture: x86_64
+    compute_profile: Azure-Intranet-Management-Default-VM
     activation_keys: ak_dev_rhel9_aap
 
-  - name: "hg_capsule"
-    description: "Parent hostgroup for Satellite Capsule systems"
-    parent: "hg_mgmt_dev/hg_intranet/hg_rhel8.10"
+  - name: hg_capsule
+    description: Parent hostgroup for Satellite Capsule systems
+    parent: hg_mgmt_dev/hg_intranet/hg_rhel8.10
     organization: "{{ satellite_organization }}"
     content_view: ccv_rhel8_capsule
-    architecture: "x86_64"
-    compute_profile: "Azure-Intranet-Management-Default-VM"
+    architecture: x86_64
+    compute_profile: Azure-Intranet-Management-Default-VM
     activation_keys: ak_dev_rhel8_capsule
 
-  - name: "hg_epel"
-    description: "Parent hostgroup for EPEL systems"
-    parent: "hg_mgmt_dev/hg_intranet/hg_rhel8.10"
+  - name: hg_epel
+    description: Parent hostgroup for EPEL systems
+    parent: hg_mgmt_dev/hg_intranet/hg_rhel8.10
     organization: "{{ satellite_organization }}"
     content_view: ccv_epel
-    architecture: "x86_64"
-    compute_profile: "Azure-Intranet-Management-Default-VM"
+    architecture: x86_64
+    compute_profile: Azure-Intranet-Management-Default-VM
     activation_keys: ak_dev_epel

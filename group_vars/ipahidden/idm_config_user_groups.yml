@@ -1,40 +1,40 @@
 ---
 idm_user_groups:
-  - name: "satgroup-administrator"
-    desc: "Satellite Server Administrators"
-  - name: "satgroup-org-administrator"
-    desc: "Satellite Default Org Administrators - Manager Role"
-  - name: "satgroup-site-administrator"
-    desc: "Satellite Default Org Administrators - Manager Role for a Location"
-  - name: "satgroup-compliance-manager"
-    desc: "Satellite Systems Compliance Managers - Full control compliance content"
-  - name: "satgroup-compliance-auditor"
-    desc: "Satellite Systems Compliance Auditor - Read only control compliance content"
-  - name: "satgroup-operator"
-    desc: "Satellite Server Operators - Full control on hosts and content hosts"
-  - name: "satgroup-sub-manager"
-    desc: "Satellite Subscription Manager - Manage all subscriptions"
-  - name: "satgroup-content-manager"
-    desc: "Satellite Content Manager - Manage all content"
-  - name: "aapgroup-administrator"
-    desc: "Ansible Automation Platform Administrators"
-  - name: "aapgroup-auditor"
-    desc: "Ansible Automation Platform Auditors"
-  - name: "aapgroup-operator"
-    desc: "Ansible Automation Platform Server Operators"
-  - name: "aapgroup-proj_manager"
-    desc: "Ansible Automation Platform Project Manager"
-  - name: "aapgroup-template_manager"
-    desc: "Ansible Automation Platform Template Manager"
-  - name: "aapgroup-user"
-    desc: "Ansible Automation Platform User - Can run basic Templates and Workflows"
-  - name: "aapgroup-developer"
-    desc: "Ansible Automation Platform Programmer - an AAP power user"
-  - name: "default-ssh-group"
-    desc: "Default group for new created users to have ssh access to servers"
-  - name: "bastion-group"
-    desc: "Default user group for Bastion VM"
-  - name: "github-runner-group"
-    desc: "Default user group for Github Runner VM"
-  - name: "ansible-admin-group"
-    desc: "Admin Group for Ansible"
+  - name: satgroup-administrator
+    desc: Satellite Server Administrators
+  - name: satgroup-org-administrator
+    desc: Satellite Default Org Administrators - Manager Role
+  - name: satgroup-site-administrator
+    desc: Satellite Default Org Administrators - Manager Role for a Location
+  - name: satgroup-compliance-manager
+    desc: Satellite Systems Compliance Managers - Full control compliance content
+  - name: satgroup-compliance-auditor
+    desc: Satellite Systems Compliance Auditor - Read only control compliance content
+  - name: satgroup-operator
+    desc: Satellite Server Operators - Full control on hosts and content hosts
+  - name: satgroup-sub-manager
+    desc: Satellite Subscription Manager - Manage all subscriptions
+  - name: satgroup-content-manager
+    desc: Satellite Content Manager - Manage all content
+  - name: aapgroup-administrator
+    desc: Ansible Automation Platform Administrators
+  - name: aapgroup-auditor
+    desc: Ansible Automation Platform Auditors
+  - name: aapgroup-operator
+    desc: Ansible Automation Platform Server Operators
+  - name: aapgroup-proj_manager
+    desc: Ansible Automation Platform Project Manager
+  - name: aapgroup-template_manager
+    desc: Ansible Automation Platform Template Manager
+  - name: aapgroup-user
+    desc: Ansible Automation Platform User - Can run basic Templates and Workflows
+  - name: aapgroup-developer
+    desc: Ansible Automation Platform Programmer - an AAP power user
+  - name: default-ssh-group
+    desc: Default group for new created users to have ssh access to servers
+  - name: bastion-group
+    desc: Default user group for Bastion VM
+  - name: github-runner-group
+    desc: Default user group for Github Runner VM
+  - name: ansible-admin-group
+    desc: Admin Group for Ansible

@@ -7,6 +7,6 @@ storage_pools:
       - sdb
     volumes:
       - name: pah_lv
-        size: "50 GB"
-        mount_point: "/var/lib/pulp"
+        size: 50 GB
+        mount_point: /var/lib/pulp
         state: present
