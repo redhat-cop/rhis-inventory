@@ -3,16 +3,16 @@ aap_config: true
 aap_config_pah_repo_sync: true
 aap_config_organization: "{{ hostvars[groups.satellite | first]['satellite_initial_organization'] }}"
 
-aap_config_inventory_repo_name: "rhis-inventory"
-aap_config_default_project: "rhis-code"
-aap_config_default_inventory: "Project SCM Inventory"
+aap_config_inventory_repo_name: rhis-inventory
+aap_config_default_project: rhis-code
+aap_config_default_inventory: Project SCM Inventory
 
 aap_config_default_credentials:
-  - "Machine Credential"
-  - "Vault Credential"
-aap_config_default_notification_template: "Slack Notifications"
-aap_config_default_execution_environment: "Automation Hub Default Remote execution environment"
-aap_config_default_job_run: "run"
+  - Machine Credential
+  - Vault Credential
+aap_config_default_notification_template: Slack Notifications
+aap_config_default_execution_environment: Automation Hub Default Remote execution environment
+aap_config_default_job_run: run
 
 aap_config_default_scm_branch: main
 

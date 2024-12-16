@@ -1,10 +1,10 @@
 ---
 satellite_prepare: true
 
-satellite_prepare_keytab_path: "/etc/foreman-proxy/freeipa.keytab"
-satellite_prepare_foreman_proxy_realm_principal: "realm-capsule"
+satellite_prepare_keytab_path: /etc/foreman-proxy/freeipa.keytab
+satellite_prepare_foreman_proxy_realm_principal: realm-capsule
 
-satellite_prepare_ssl_certs_dir: "/etc/ipa/private/"
+satellite_prepare_ssl_certs_dir: /etc/ipa/private/
 satellite_prepare_ssl_crt_path: "{{ satellite_prepare_ssl_certs_dir }}{{ inventory_hostname }}.crt"
 satellite_prepare_ssl_key_path: "{{ satellite_prepare_ssl_certs_dir }}{{ inventory_hostname }}.key"
 satellite_prepare_ssl_csr_path: "{{ satellite_prepare_ssl_certs_dir }}{{ inventory_hostname }}.csr"
@@ -15,7 +15,7 @@ satellite_repository_ids:
   - satellite-6.15-for-rhel-8-x86_64-rpms
   - satellite-maintenance-6.15-for-rhel-8-x86_64-rpms
 
-satellite_firewalld_zone: "public"
+satellite_firewalld_zone: public
 satellite_firewalld_services:
   - RH-Satellite-6
   - http
@@ -30,25 +30,25 @@ satellite_firewall:
   - interface: eth0
     zone: "{{ satellite_firewalld_zone }}"
     state: enabled
-  - service: "RH-Satellite-6"
+  - service: RH-Satellite-6
     port:
-      - "5646/tcp"
-      - "8888/tcp"
-      - "8889/tcp"
-      - "5671/tcp"
-      - "5671/udp"
+      - 5646/tcp
+      - 8888/tcp
+      - 8889/tcp
+      - 5671/tcp
+      - 5671/udp
     permanent: true
     state: present
   - service: "{{ satellite_firewalld_services }}"
     permanent: true
     state: enabled
 
-satellite_prepare_csr_digest: "aes256"
+satellite_prepare_csr_digest: aes256
 satellite_prepare_csr_common_name: "{{ inventory_hostname }}"
 satellite_prepare_csr_organization_name: "{{ azure_dns_private_dns_zone | upper }}"
-satellite_prepare_csr_organization_unit_name: "Showroom Project"
-satellite_prepare_csr_locality_name: "Frankfurt am Main"
-satellite_prepare_csr_state_or_province_name: "Hessen"
-satellite_prepare_csr_country_name: "DE"
-satellite_prepare_csr_email_address: "admin@{{ azure_dns_private_dns_zone }}"
-satellite_prepare_csr_subject_alt_name: "DNS:{{ inventory_hostname }}"
+satellite_prepare_csr_organization_unit_name: Showroom Project
+satellite_prepare_csr_locality_name: Frankfurt am Main
+satellite_prepare_csr_state_or_province_name: Hessen
+satellite_prepare_csr_country_name: DE
+satellite_prepare_csr_email_address: admin@{{ azure_dns_private_dns_zone }}
+satellite_prepare_csr_subject_alt_name: DNS:{{ inventory_hostname }}

@@ -1,4 +1,4 @@
 ---
-azure_vm_deploy_vm_size: "Standard_D2s_v4"
+azure_vm_deploy_vm_size: Standard_D2s_v4
 vm_tags:
   ssv2excludevm: "true"
