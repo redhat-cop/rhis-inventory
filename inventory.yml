@@ -10,6 +10,7 @@ mgmt_intra:
             aap_pah:
             aap_db:
             aap_execution_node_intra:
+            aap_eda:
         satellite:
         idm:
           children:
@@ -125,6 +126,10 @@ aap_db:
 aap_execution_node_intra:
   hosts:
     achilles.internal.showroom.run:   # aap intra execution node
+aap_eda:
+  hosts:
+    artemis.internal.showroom.run:    # aap eda
+
 
 # Workloads_intra
 workload_servers_intra_dev_rhel8:
