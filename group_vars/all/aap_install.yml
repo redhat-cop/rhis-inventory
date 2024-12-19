@@ -1,2 +1,7 @@
 ---
 aap_install: false
+aap_install_major_version: "2.4"
+aap_install_minor_version: "8"
+aap_install_version: "{{ aap_install_major_version }}-{{ aap_install_minor_version }}"
+aap_install_repo_name: "Red Hat Ansible Automation Platform {{ aap_install_major_version }} for RHEL 9 x86_64 Files"
+aap_install_aap_bundle_file: "ansible-automation-platform-setup-{{ aap_install_version }}.tar.gz"
